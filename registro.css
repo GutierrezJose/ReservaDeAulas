@@ -1,0 +1,81 @@
+body{
+    /*min-width: 10vh;*/
+}
+
+header{
+    background-image: linear-gradient(#003770 90%,#e30613 0%);
+    background-size: 100%;
+    height: 100px;
+}
+
+footer{
+    background-image: linear-gradient(#003770 90%,#e30613 0%);
+    background-size: 100% 100%; 
+    height: 115px;
+}
+
+li{
+    list-style: none;
+}
+#logoFCYT{
+    width: 95px;
+}
+
+#navegacion{
+    border: solid;
+    float: left;
+    padding-right: 10%
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    color: lightcoral;
+}
+#sidebar-container{
+    /*min-height: 70vh;*/
+    min-width: 10%;
+    height: 506px;
+    background-image: linear-gradient(#003770 90%,#e30613 5%);
+}
+.menu{
+    width: 18rem; 
+}
+
+.datos{
+    background-color: #EBEBEB;
+    /*margin-left: 100%;
+    margin-top: 30px;*/
+    margin-left: 50%;
+    width: 600px;
+    height: 200px;
+    border: green  solid;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
+.contenedor{
+    width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+    #sidebar-container{
+        width: 30%;
+    }
+    .datos{
+        width: 80%;
+        margin-left: 70%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #sidebar-container{
+        width: 50%;
+    }
+    .datos{
+        width: 80%;
+        margin-left: 10%;
+    }
+}
