@@ -16,6 +16,8 @@ footer{
 
 li{
     list-style: none;
+    padding-left: 5%;
+    padding-bottom: 2%;
 }
 #logoFCYT{
     width: 95px;
@@ -47,8 +49,8 @@ a:hover{
     background-color: #EBEBEB;
     /*margin-left: 100%;
     margin-top: 30px;*/
-    margin-left: 50%;
-    width: 600px;
+    margin-left: 120%;
+    width: 300px;
     height: 200px;
     border: green  solid;
     border-radius: 10px;
@@ -59,6 +61,7 @@ a:hover{
 .contenedor{
     width: 100%;
 }
+
 
 @media screen and (max-width: 1200px) {
     #sidebar-container{

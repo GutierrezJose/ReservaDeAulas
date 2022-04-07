@@ -1,6 +1,75 @@
+
+
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      function SoloLetras(e)
+      {   
+          key = e.keyCode || e.which;
+          tecla = String.fromCharCode(key).toString();
+          letras = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóú";
+  
+          especiales = [32, 9, 11, 13];
+          tecla_especial = false;
+          for(var i in especiales){
+          if(key == especiales[i]){
+              tecla_especial = true;
+              break;
+          }
+          }
+  
+          if((letras.indexOf(tecla)== -1) && (!tecla_especial))
+          {
+              alert("solo puede ingresar letras");
+              return false;
+          }
+          
+      }
+      function SoloLetrasYNumeros(ev)
+      {   
+          key = ev.keyCode || ev.which;
+          tecla = String.fromCharCode(key).toString();
+          letras = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóú";
+  
+          especiales = [9, 11, 13];
+          tecla_especial = false;
+          for(var i in especiales){
+          if(key == especiales[i]){
+              tecla_especial = true;
+              break;
+          }
+          if((key > 47 && key < 58)){
+              return true;
+          }
+          }
+  
+          if((letras.indexOf(tecla)== -1) && (!tecla_especial))
+          {
+              alert("solo puede ingresar letras y números sin espacios");
+              return false;
+          }
+          
+      }
+      function SoloNumeros(evt)
+      {
+          if(window.event){
+              keynum = evt.keyCode;
+          }
+          else{
+              keynum = evt.which;
+          }
+          if((keynum > 47 && keynum < 58)||keynum == 32){
+              return true;
+          }
+          else
+          {
+              alert("Solo puede ingresar numeros");
+              return false;
+          }
+      }
+  </script>   
+    
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,10 +100,10 @@
        <div class="datos">
          <br>
          <form action="post">
-           <li>Nombre: <input type="text"></li>
-           <li>Correo electronico: <input type="text"></li>
-           <li>CodigoSIS: <input type="text"></li>
-           <li>Contraseña: <input type="pass"></li>
+           <li><input type="text" placeholder="Nombre" onkeypress="return SoloLetras(event);" size="30"></li>
+           <li><input type="email" placeholder="Correo electrónico" size="30"></li>
+           <li><input type="text" placeholder="CodigoSIS" onkeypress="return SoloNumeros(event);" size="30"></li>
+           <li><input type="pass" placeholder="Contraseña" size="30"></li>
          </form>
       </div>
       </div>
