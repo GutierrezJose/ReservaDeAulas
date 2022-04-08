@@ -68,7 +68,19 @@
               return false;
           }
       }
-  </script>   
+  </script> 
+  
+  <script>
+    function confirmarCancelar()
+    {
+      var respuesta = confirm("Estas seguro de cancelar");
+      if(respuesta == true){
+        return true;
+      }else{
+        return false;
+      }
+    }
+  </script>
     
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -100,10 +112,12 @@
        <div class="datos">
          <br>
          <form action="post">
-           <li><input type="text" placeholder="Nombre" onkeypress="return SoloLetras(event);" size="30"></li>
-           <li><input type="email" placeholder="Correo electrónico" size="30"></li>
-           <li><input type="text" placeholder="CodigoSIS" onkeypress="return SoloNumeros(event);" size="30"></li>
-           <li><input type="pass" placeholder="Contraseña" size="30"></li>
+           <li><input type="text" placeholder="Nombre" onkeypress="SoloLetras(event);" size="30" class="inputs"  required></li>
+           <li><input type="email" placeholder="Correo electrónico" size="30"  class="inputs" required></li>
+           <li><input type="text" placeholder="CodigoSIS" onkeypress="SoloNumeros(event);" size="30"  class="inputs" required></li>
+           <li><input type="pass" placeholder="Contraseña" size="30"  class="inputs" required></li>
+           <li id="cancelar"><input type="reset" class="btn btn-primary cancelar" onclick="return confirmarCancelar()"></li>
+           <li id="enviar"><input type="submit" class="btn btn-primary enviar"></li>
          </form>
       </div>
       </div>
