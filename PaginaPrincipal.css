@@ -1,0 +1,50 @@
+header{
+    background-image: linear-gradient(#003770 90%,#e30613 0%);
+    background-size: 100%;
+    height: 100px;
+}
+
+#logoFCYT{
+    width: 95px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#nombre{
+    width: 200px;
+}
+
+#princ{
+    width: 100%;
+    height: 220px;
+}
+
+.btn{
+    margin-top: 28px;
+    margin-right: 10px;
+    padding-left: 1%;
+    float: right;
+    padding-right: 1%; 
+    background-color: #003770;
+    border-color: #000000;
+    border-width: 3px;
+}
+
+.contenedor{
+    width: 100%;
+}
+
+.informacion{
+    background-color: #84c6ed;
+    height: 145px;
+    width: 400px;
+    text-align: center;
+    margin: 2rem auto;
+    padding: 15px;
+    font-size: larger;
+    font-weight: 900;
+}
