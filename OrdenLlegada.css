@@ -1,0 +1,87 @@
+header{
+    background-image: linear-gradient(#003770 90%,#e30613 0%);
+    background-size: 100%;
+    height: 100px;
+    
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    background: #fafafa;
+}
+a,
+a:hover,
+a:focus{
+    color:inherit;
+    text-decoration: none;
+    transition: all 0.3%;
+}
+#logoFCYT{
+    width: 95px;
+}
+
+#nos{
+    color: #fff;
+}
+
+.wrapper{
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3%;
+}
+
+#sidebar{
+    min-width: 250px;
+    max-width: 250px;
+    background: #003770;
+    color: #fff;
+    transition: all 0.3%;
+}
+
+#sidebar .active{
+    margin-left: -250px;
+}
+
+#sidebar li.components{
+    padding: 20px 0;
+    background: #003770;
+}
+#sidebar li p{
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar li a{
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar li a:hover{
+    color: #003770;
+    background: #fff;
+}
+
+#sidebar li.active>a,
+a[aria-expanded="true"]{
+    color:#fff;
+    background: #003770;
+}
+
+a[data-toogle="collapse"]{
+    position: relative;
+}
+
+.dropdown-toggle::after{
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    transform: translate(-50%);
+}
+#content{
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3%;
+}

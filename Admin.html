@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<header id="cabecera">
+    <img src="./imagenes/fcyt.png" id="logoFCYT">
+</header>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale-1">
-    <title>Ejemplo para vista</title>
+    <title>Administrador</title>
 
     <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./Admin.css" rel="stylesheet">
+    
 </head>
 <body>
 
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-xl navbar-dark bg-primary border-3 border-bottom border-primary" color="#0d6efd">
-            <div class="container-fluid">
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNavegacion">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="MenuNavegacion" class="collapse navbar-collapse">
-                    <ul class="navbar-nav ms-3" display: block>
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Administrador</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
-                        </ul>
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Docentes</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Agregar docente</a></li>
-                            <li><a class="dropdown-item" href="#">Lista de docentes</a></li>
-                        </ul>
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Aulas</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Agregar aula</a></li>
-                            <li><a class="dropdown-item" href="#">Lista de aulas</a></li>
-                        </ul>
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Materias</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Agregar materia</a></li>
-                            <li><a class="dropdown-item" href="#">Lista de materias</a></li>
-                        </ul>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <div class="d-flex">
+        <div id="sidebar-container">
+          <div class="menu">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Docentes</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Agregar docentes</a></li>
+                    <li><a class="dropdown-item" href="./ListaDocentes.html">Lista de docentes</a></li>
+                </ul>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Aulas</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Agregar aulas</a></li>
+                    <li><a class="dropdown-item" href="./ListaAulas.html">Lista de aulas</a></li>
+                </ul>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Materia-Grupo</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Agregar Materia-Grupo</a></li>
+                    <li><a class="dropdown-item" href="./ListaMaterias-Grupos.html">Lista de Materias-Grupos</a></li>
+                </ul>
+          </div> 
+        </div>
     </div>
+
+
+      
 
     <script src="./js/bootstrap.bundle.min.js"></script>
 
