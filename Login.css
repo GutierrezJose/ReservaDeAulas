@@ -1,0 +1,68 @@
+header{
+    background-image: linear-gradient(#003770 90%,#e30613 0%);
+    background-size: 100%;
+    height: 100px;
+}
+
+.contenedor{
+    width: 100%;
+}
+
+#logoFCYT{
+    width: 95px;
+}
+
+#Inicio{
+    margin-top: 28px;
+    margin-right: 15px;
+    padding-left: 1%;
+    float: right;
+    padding-right: 1%; 
+    background-color: #003770;
+    border-color: #000000;
+    border-width: 3px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+#nombre{
+    width: 200px;
+}
+
+.form-login{
+    width: 400px;
+    height: 270px;
+    background: #EBEBEB;
+    margin: auto;
+    margin-top: 20px;    
+}
+
+.form-login h4{
+   text-align: center;
+   height: 50px;
+   margin-bottom: 30px;
+   background-color: #003770;
+   padding-top: 10px;
+   color: #ffffff;
+}
+
+.campos{
+    width: 80%;  
+    margin-left: 10%;  
+    margin-bottom: 30px;
+    padding-left: 10px;
+}
+
+#Ingresa{
+    width: 40%;
+    float: right;
+    margin-right: 30%;
+    background: #003770;
+    color: #ffffff;
+    font-size: large;
+}
