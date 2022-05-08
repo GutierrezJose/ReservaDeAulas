@@ -40,8 +40,8 @@
         </div> 
         <div class="form-login">
             <h4>Iniciar Sesión</h4>
-            <form action="post">
-            <input class="campos" type="text" name="usuario" value="" placeholder="Usuario" minlength="9" onkeypress="SoloNumeros(event);" id="cUsuario" required>
+            <form action="validar.php" method="post">
+            <input class="campos" type="text" name="usuario" value="" placeholder="Usuario" minlength="1" onkeypress="SoloNumeros(event);" id="cUsuario" required>
             <input class="campos" type="password" name="contraseña" value="" placeholder="Contraseña" id="cPassword" required>
             <input class="btn btn-primary" type="submit" id="Ingresa" name=""  value="Ingresar">
             </form>
