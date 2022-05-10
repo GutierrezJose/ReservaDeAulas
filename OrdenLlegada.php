@@ -33,10 +33,13 @@ $server = "localhost";
             <ul class="lisst-unstyled components">
             <li class="active">
                 <li>
-                    <a href="OrdenLlegada.html" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Reservas por orden de llegada</a>
+                    <a href="OrdenLlegada.php" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Reservas por orden de llegada</a>
                 </li>
                 <li>
-                    <a href="Urgencia.html" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Reservas por urgencia</a>
+                    <a href="FechaProxima.php" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Reservas por fecha proxima</a>
+                </li>
+                <li>
+                    <a href="Urgencia.php" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Reservas por urgencia</a>
                 </li>
             </li>
         </nav>      
@@ -60,7 +63,7 @@ $server = "localhost";
                     <th>Hora inicio</th>
                     <th>Hora fin</th>
                     <th>Docente</th>
-                    <th>Aula</th>
+                    <th>Ambiente</th>
                     <th>Motivo</th>
                 </tr>
             </thead>
