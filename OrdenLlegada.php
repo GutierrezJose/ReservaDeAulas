@@ -41,6 +41,9 @@ $server = "localhost";
                 <li>
                     <a href="Urgencia.php" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Reservas por urgencia</a>
                 </li>
+                <li>
+                    <a href="MAXmin.html" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Cambiar limite de reservas</a>
+                </li>
             </li>
         </nav>      
         
