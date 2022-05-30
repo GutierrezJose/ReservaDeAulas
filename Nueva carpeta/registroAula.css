@@ -1,4 +1,3 @@
-
 header{
     background-image: linear-gradient(#003770 90%,#e30613 0%);
     background-size: 100%;
@@ -8,10 +7,9 @@ header{
 form{
     padding-top:5%;
 }
-footer{
-    background-image: linear-gradient(#003770 90%,#e30613 0%);
-    background-size: 100% 100%; 
-    height: 115px;
+body{
+    font-family:'Poppins', sans-serif;
+    background: #fafafa;
 }
 
 li{
@@ -23,11 +21,33 @@ li{
 #logoFCYT{
     width: 95px;
 }
-
+#nos{
+    color: #fff;
+}
+.wrapper{
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3%;
+}
 #navegacion{
     border: solid;
     float: left;
     padding-right: 10%
+}
+#Inicio{
+    margin-top: 28px;
+    margin-right: 15px;
+    padding-left: 1%;
+    float: right;
+    padding-right: 1%; 
+    background-color: #003770;
+    border-color: #000000;
+    border-width: 3px;
+}
+a:focus{
+    color:inherit;
+    text-decoration: none;
+    transition: all 0.3%;
 }
 a{
     color: white;
@@ -36,14 +56,54 @@ a{
 a:hover{
     color: lightcoral;
 }
-#sidebar-container{
-    /*min-height: 70vh;*/
-    min-width: 10%;
-    height: 506px;
-    background-image: linear-gradient(#003770 90%,#e30613 5%);
+#sidebar{
+    min-width: 250px;
+    max-width: 250px;
+    background: #003770;
+    color: #fff;
+    transition: all 0.3%;
 }
-.menu{
-    width: 18rem; 
+
+#sidebar .active{
+    margin-left: -250px;
+}
+
+#sidebar li.components{
+    padding: 20px 0;
+    background: #003770;
+}
+#sidebar li p{
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar li a{
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar li a:hover{
+    color: #003770;
+    background: #fff;
+}
+
+#sidebar li.active>a,
+a[aria-expanded="true"]{
+    color:#fff;
+    background: #003770;
+}
+
+a[data-toogle="collapse"]{
+    position: relative;
+}
+
+.dropdown-toggle::after{
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    transform: translate(-50%);
 }
 
 .datos{
@@ -51,8 +111,8 @@ a:hover{
     /*margin-left: 100%;
     margin-top: 30px;*/
     margin-left: 120%;
-    width: 300px;
-    height: 200px;
+    width: 320px;
+    height: 240px;
     border: #e30613  solid;
     border-radius: 10px;
     box-sizing: border-box;

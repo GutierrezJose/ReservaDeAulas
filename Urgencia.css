@@ -36,11 +36,24 @@ a:focus{
     color: #fff;
     transition: all 0.3%;
 }
-
+#Inicio{
+    margin-top: 28px;
+    margin-right: 15px;
+    padding-left: 1%;
+    float: right;
+    padding-right: 1%; 
+    background-color: #003770;
+    border-color: #000000;
+    border-width: 3px;
+}
 #sidebar .active{
     margin-left: -250px;
 }
-
+li{
+    list-style: none;
+    padding-left: 5%;
+    padding-bottom: 2%;
+}
 #sidebar li.components{
     padding: 20px 0;
     background: #003770;

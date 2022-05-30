@@ -27,6 +27,9 @@
             <ul class="lisst-unstyled components">
             <li class="active">
                 <li>
+                    <h1><i class="icon ion-md-person mr-2 lead"> Administrador</i></h1>
+                </li>
+                <li>
                     <a href="OrdenLlegada.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Reservas por orden de llegada</a>
                 </li>
                 <li>
@@ -38,9 +41,14 @@
                 <li>
                     <a href="MAXmin.html" class="d-block  p-3"><i class="icon ion-md-create mr-2 lead"></i> Cambiar limite de reservas</a>
                 </li>
+                <li>
+                    <a href="AñadirAula.html" class="d-block  p-3"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aulas</a>
+                </li>
+                <li>
+                    <a href="ListaDeAulas.html" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
+                </li>
             </li>
-        </nav>      
-        
+        </nav>          
     <div id="content">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -50,37 +58,17 @@
         </nav>
         
         <div class="container">
-            <text>Numero minimo de dias <select class="form-control" type="number" name="DiaMin" placeholder="Minimo" id="min" required>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-            </select>
-            </text>
-            <text>Numero maximo de dias <select class="form-control" type="number" name="DiaMax" placeholder="Maximo" id="MAX" required>
-                <option>14</option>
-                <option>15</option>
-                <option>16</option>
-                <option>17</option>
-                <option>18</option>
-                <option>19</option>
-                <option>20</option>
-                <option>21</option>
-                <option>22</option>
-                <option>23</option>
-                <option>24</option>
-                <option>25</option>
-                <option>26</option>
-                <option>27</option>
-                <option>28</option>
-                <option>29</option>
-                <option>30</option>
-            </select>
-            </text>
-            <input class="btn btn-primary" type="submit" id="Guardar" name=""  value="Guardar">
+            <h1>Cambiar los dias limite para reservar</h1>
+            <div class="datos">
+             <br>
+             <form action="post">
+               <li><input type="number" placeholder="Maximo de dias" min="1"  class="inputs"  required></li>
+               <li><input type="number" placeholder="Minimo de dias" min="1" class="inputs"  required></li>
+               <li><input type="text" placeholder="Motivo por el que hace el cambio" size="30"  class="inputs" required></li>
+               <li id="cancelar"><input type="reset" class="btn btn-primary cancelar" value="Cancelar"></li>
+               <li id="enviar"><input type="submit" class="btn btn-primary enviar" value="Guardar"></li>
+             </form>
+          </div>
         </div>
     </div>   
 </body>

@@ -105,6 +105,9 @@
             <ul class="lisst-unstyled components">
             <li class="active">
                 <li>
+                    <h1><i class="icon ion-md-person mr-2 lead"> Administrador</i></h1>
+                </li>
+                <li>
                     <a href="OrdenLlegada.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Reservas por orden de llegada</a>
                 </li>
                 <li>
@@ -136,9 +139,19 @@
             <div class="datos">
              <br>
              <form action="post">
-               <li><input type="text" placeholder="Numero de Aula"  size="30"class="inputs"  required></li>
-               <li><input type="text" placeholder="Ambiente"  size="30"class="inputs"  required></li>
-               <li><input type="text" placeholder="Capacidad" onkeypress=" SoloNumeros(event);" size="30"  class="inputs" required></li>
+               <li><label>Nombre</label><input type="text" placeholder="Nombre"  size="30"class="inputs"  required></li>
+               <li>
+                <div class="btn-group">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Ambiente</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>Aula comun</option>
+                          <option>Laboratorio</option>
+                          <option>Auditorio</option>
+                        </select>
+                      </div></li>
+               <li><label>Capacidad</label></li>
+               <li><input type="number" placeholder="Capacidad" onkeypress=" SoloNumeros(event);" min="1" class="inputs" required></li>
                <li id="cancelar"><input type="reset" class="btn btn-primary cancelar" value="Cancelar" onclick=" confirmarCancelar()"></li>
                <li id="enviar"><input type="submit" class="btn btn-primary enviar"></li>
              </form>

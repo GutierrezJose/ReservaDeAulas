@@ -87,41 +87,64 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="registroAula.css">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Registro Aula</title> 
+    <script type="text/javascript"></script>
+    <title>Lista de reservas por orden de llegada</title> 
   </head>
   <body>
   <div class="contenedor">
     <header id="cabecera">
       <img src="images/fcyt.png" id="logoFCYT">
+      <a href="http://sagaa.fcyt.umss.edu.bo" id="nos"> Acerca de nosotros</a>
+      <a href="PaginaPrincipal.html" class="btn btn-primary" id="Inicio"> Cerrar Sesion </a>
     </header>
+  </div>
     <!-- MENU LATERAL-->
-    <div class="d-flex">
-      <div id="sidebar-container">
-        <div class="menu">
-          <a href="registroUsuario.html"class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Agregar Docente</a>
-          <a href="registroAula.html" class="d-block  p-3"><i class="icon ion-md-apps mr-2 lead"></i> Agregar Aula</a>
-          <a href="#" class="d-block  p-3"><i class="icon ion-md-bookmarks mr-2 lead"></i> Agregar Materia-Grupo</a>
-        </div> 
-      </div>
+    <div class="wrapper">
+      <nav id="sidebar">
+        <div class="sidebar-header"></div>
+        <ul class="lisst-unstyled components">
+        <li class="active">
+            <li>
+                <a href="OrdenLlegada.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Reservas por orden de llegada</a>
+            </li>
+            <li>
+                <a href="FechaProxima.php" class="d-block  p-3"><i class="icon ion-md-calendar mr-2 lead"></i> Reservas por fecha proxima</a>
+            </li>
+            <li>
+                <a href="Urgencia.php" class="d-block  p-3"><i class="icon ion-md-alert mr-2 lead"></i> Reservas por urgencia</a>
+            </li>
+            <li>
+                <a href="MAXmin.html" class="d-block  p-3"><i class="icon ion-md-create mr-2 lead"></i> Cambiar limite de reservas</a>
+            </li>
+            <li>
+                <a href="ListaDeAulas.html" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
+            </li>
+        </li>
+    </nav>      
+
+    <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            
+        </div>
+      </nav>
+    </div>
       <div class="formulario">
         <h1>Registro Aula</h1>
        <div class="datos">
          <br>
          <form action="post">
            <li><input type="text" placeholder="Numero de Aula"  size="30"class="inputs"  required></li>
+           <li><input type="text" placeholder="Ambiente"  size="30"class="inputs"  required></li>
            <li><input type="text" placeholder="Capacidad" onkeypress=" SoloNumeros(event);" size="30"  class="inputs" required></li>
            <li id="cancelar"><input type="reset" class="btn btn-primary cancelar" onclick=" confirmarCancelar()"></li>
            <li id="enviar"><input type="submit" class="btn btn-primary enviar"></li>
          </form>
       </div>
       </div>
-    </div>
-    <footer>
-
-    </footer>
-
+  </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

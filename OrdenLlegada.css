@@ -41,7 +41,11 @@ a:focus{
 #sidebar .active{
     margin-left: -250px;
 }
-
+li{
+    list-style: none;
+    padding-left: 5%;
+    padding-bottom: 2%;
+}
 #sidebar li.components{
     padding: 20px 0;
     background: #003770;
