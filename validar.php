@@ -1,8 +1,8 @@
 <?php
 $server = "localhost";
 $user = "root";
-$password = "root";
-$dataBase = "tarea";
+$password = "";
+$dataBase = "reservadeaula";
 $usuario=$_POST['usuario'];
 $contraseña=$_POST['contraseña'];
 session_start();
@@ -13,7 +13,7 @@ $resultado=mysqli_query($conexion,$consulta);
 $filas=mysqli_num_rows($resultado);
 if($filas){
     header("Status: 301 Moved Permanently");
-    header("Location: http://localhost/tis/OrdenLlegada.php");
+    header("Location: http://localhost:8080/ReservasDeAulasGrupo/ReservaDeAulas/OrdenLlegada.php");
 exit;
 }else{
     ?>

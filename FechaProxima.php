@@ -1,9 +1,9 @@
 <?php
 $server = "localhost";
-    $user = "root";
-    $password = "root";
-    $dataBase = "tarea";
-    $conexion = mysqli_connect($server, $user, $password, $dataBase);
+$user = "root";
+$password = "";
+$dataBase = "reservadeaula";
+$conexion = mysqli_connect($server, $user, $password, $dataBase);
 ?>
 
 <!doctype html>
@@ -34,22 +34,13 @@ $server = "localhost";
             <ul class="lisst-unstyled components">
             <li class="active">
                 <li>
-                    <a href="OrdenLlegada.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Reservas por orden de llegada</a>
+                    <a href="OrdenLlegada.php" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Reservas por orden de llegada</a>
                 </li>
                 <li>
-                    <a href="FechaProxima.php" class="d-block  p-3"><i class="icon ion-md-calendar mr-2 lead"></i> Reservas por fecha proxima</a>
+                    <a href="FechaProxima.php" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Reservas por fecha proxima</a>
                 </li>
                 <li>
-                    <a href="Urgencia.php" class="d-block  p-3"><i class="icon ion-md-alert mr-2 lead"></i> Reservas por urgencia</a>
-                </li>
-                <li>
-                    <a href="MAXmin.html" class="d-block  p-3"><i class="icon ion-md-create mr-2 lead"></i> Cambiar limite de reservas</a>
-                </li>
-                <li>
-                    <a href="AñadirAula.html" class="d-block  p-3"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aulas</a>
-                </li>
-                <li>
-                    <a href="ListaDeAulas.html" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
+                    <a href="Urgencia.php" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Reservas por urgencia</a>
                 </li>
             </li>
         </nav>      

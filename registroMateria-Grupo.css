@@ -1,0 +1,126 @@
+
+header{
+    background-image: linear-gradient(#003770 90%,#e30613 0%);
+    background-size: 100%;
+    height: 100px;
+}
+
+form{
+    padding-top:5%;
+}
+footer{
+    background-image: linear-gradient(#003770 90%,#e30613 0%);
+    background-size: 100% 100%; 
+    height: 115px;
+}
+
+li{
+    list-style: none;
+    padding-left: 5%;
+    padding-bottom: 2%;
+}
+
+#logoFCYT{
+    width: 95px;
+}
+
+#navegacion{
+    border: solid;
+    float: left;
+    padding-right: 10%
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    color: lightcoral;
+}
+#sidebar-container{
+    /*min-height: 70vh;*/
+    min-width: 10%;
+    height: 506px;
+    background-image: linear-gradient(#003770 90%,#e30613 5%);
+}
+.menu{
+    width: 18rem; 
+}
+
+.datos{
+    background-color: #EBEBEB;
+    /*margin-left: 100%;*/
+    margin-top: 30px;
+    margin-left: 100%;
+    width: 300px;
+    height: 200px;
+    border: #e30613  solid;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
+.contenedor{
+    width: 100%;
+}
+
+#enviar{
+    padding-left: 0%;
+    float: right;
+    padding-right: 5%;
+    padding-top: 6%;
+}
+
+.cancelar{
+    background-color: #e30613;
+}
+
+.cancelar:hover{
+    background-color: red;
+}
+#cancelar{
+    padding-left: 0%;
+    float: right;
+    padding-right: 6%;
+    padding-top: 6%;
+}
+
+.botones{
+    margin-top: 10%;
+}
+
+@media screen and (max-width: 1200px) {
+    #sidebar-container{
+        width: 30%;
+    }
+    .datos{
+        width: 80%;
+        margin-top: 20%; 
+        margin-left: 6% !important;       
+    }
+    .inputs{
+        width: 90%;
+    }
+    #cancelar{
+        padding-top: 6%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #sidebar-container{
+        width: 50%;
+    }
+    .datos{
+        width: 80%;
+        margin-left: 50%;
+        margin-top: 20%;
+    }
+    #enviar{
+        padding-left: 1px;
+        padding-right: 1%;
+        margin-top: 4%;
+    }
+    #cancelar{
+        padding-right: 6%;
+        margin-top: 4%;
+    }
+}
