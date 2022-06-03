@@ -1,10 +1,11 @@
 <?php
 $server = "localhost";
-    $user = "root";
-    $password = "root";
-    $dataBase = "tarea";
-    $conexion = mysqli_connect($server, $user, $password, $dataBase);
+$user = "root";
+$password = "root";
+$dataBase = "tarea";
+$conexion = mysqli_connect($server, $user, $password, $dataBase);
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>  
@@ -73,7 +74,7 @@ $server = "localhost";
                     <th>Codigo</th>
                     <th>Fecha</th>
                     <th>Hora inicio</th>
-                    <th>Hora fin</th>
+                    <th>Periodo</th>
                     <th>Docente</th>
                     <th>Ambiente</th>
                     <th>Motivo</th>
@@ -82,7 +83,7 @@ $server = "localhost";
             <tbody>
                 <tr class="table-success">
                     <?php
-                        $llegada = "    select r.id_reserva, r.fecha_reserva, r.hora_inicio,r.hora_final,d.nombre_usuario,r.cod_aula,r.reporte
+                        $llegada = "    select r.id_reserva, r.fecha_reserva, r.hora_inicio,r.periodo,d.nombre_usuario,r.cod_aula,r.reporte
                                         from reserva r, docente d
                                         where r.codigo_sis=d.codigo_sis
                                         order by r.id_reserva asc;";
@@ -93,7 +94,7 @@ $server = "localhost";
                                 <th><?php echo $filas["id_reserva"]?></th> 
                                 <th><?php echo $filas["fecha_reserva"]?></th> 
                                 <th><?php echo $filas["hora_inicio"]?></th> 
-                                <th><?php echo $filas["hora_final"]?></th> 
+                                <th><?php echo $filas["periodo"]?></th> 
                                 <th><?php echo $filas["nombre_usuario"]?></th> 
                                 <th><?php echo $filas["cod_aula"]?></th> 
                                 <th><?php echo $filas["reporte"]?></th>

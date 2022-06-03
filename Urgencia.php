@@ -73,7 +73,7 @@ $server = "localhost";
                     <th>Codigo</th>
                     <th>Fecha</th>
                     <th>Hora inicio</th>
-                    <th>Hora fin</th>
+                    <th>Periodo</th>
                     <th>Docente</th>
                     <th>Ambiente</th>
                     <th>Motivo</th>
