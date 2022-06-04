@@ -1,0 +1,124 @@
+header{
+    background-image: linear-gradient(#003770 90%,#e30613 0%);
+    background-size: 100%;
+    height: 100px;
+}
+
+#logoFCYT{
+    width: 95px;
+}
+
+#sidebar-container{
+    /*min-height: 70vh;*/
+    min-width: 10%;
+    height: 506px;
+    background-image: linear-gradient(#003770 90%,#e30613 5%);
+}
+
+footer{
+    background-image: linear-gradient(#003770 90%,#e30613 0%);
+    background-size: 100%; 
+    height: 115px;
+}
+
+.menu{
+    width: 18rem; 
+}
+
+#navegacion{
+    border: solid;
+    float: left;
+    padding-right: 10%
+}
+
+.contenedor{
+    width: 100%;
+}
+
+#Cerrar{
+    margin-top: 28px;
+    margin-right: 15px;
+    padding-left: 1%;
+    float: right;
+    padding-right: 1%; 
+    background-color: #003770;
+    border-color: #000000;
+    border-width: 3px;
+}
+
+#User{
+    font-size: 80px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+}
+
+.menu h6{
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+.datos{ 
+    background-color: #EBEBEB;
+    margin-left: 10%;
+    width: 940px;
+    height: 350px;
+    border: #e30613  solid;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.container-flex, .container-field {
+    display: flex;
+}
+
+.container-field {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-fiel{
+    margin-bottom: 10px;
+}
+
+#motivo{
+    margin-left: 10%;   
+}
+
+.text-area {
+    display: block;
+    margin-left: 2%;
+}
+
+.checkbox{
+    width: 25px;
+    height: 30px;
+}
+
+.field-input {
+    width: 150px;
+    height: 30px;
+}
+
+#Enviar{
+    background: #003770;
+    color: #ffffff;
+    font-size: large;
+    margin-left: 40%;
+    margin-top: 2%;
+}

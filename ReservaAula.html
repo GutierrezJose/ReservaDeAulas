@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>Reserva aula</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="ReservaAula.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    </head>
+    <body>
+    <div class="contenedor">
+        <header id="cabecera">
+            <img src="images/fcyt.png" id="logoFCYT">
+            <a href="PaginaPrincipal.html" class="btn btn-primary" id="Cerrar"> Cerrar Sesión </a>
+        </header>
+    <!-- MENU LATERAL-->
+    <div class="d-flex">
+        <div id="sidebar-container">
+          <div class="menu">
+            <i class="bi bi-person-fill" id="User"></i>
+            <h6>NOMBRE DOCENTE</h6>
+          </div> 
+        </div>
+        <div class="formulario">
+            <h3>Reserva de Aula</h3><br>
+            <form class="datos">
+                <div class="form-field">
+                    <div class="form-column">
+                        <div class="container-field">
+                            <label for="html">Nombre docente:</label><br>
+                                <input type="text" class="field-input" disabled>
+                        </div>
+                        <div class="container-field">
+                            <label for="html">Numero estudiantes:</label><br>
+                                <input type="text" class="field-input" disabled>
+                        </div>
+                        <div class="container-field">
+                            <label for="html">Hora inicio:</label><br>
+                            <select class="field-input" name="select">
+                                <option value="" selected>6:45</option>
+                                <option value="value1" >8:15</option>
+                                <option value="value1" >9:45</option>
+                                <option value="value1" >11:15</option>
+                                <option value="value1" >12:45</option>
+                                <option value="value1" >14:15</option>
+                                <option value="value1" >15:45</option>
+                                <option value="value1" >17:15</option>
+                                <option value="value1" >18:45</option>
+                                <option value="value1" >20:15</option>
+                            </select>
+                        </div>
+                        
+
+                        <!-- <div class="container-field">
+                            <label for="html">Motivo de la reserva:</label><br>
+                            <select name="select">
+                                <option value="value2" selected>Calculo I</option>
+                            </select>
+                        </div> -->
+                    </div>
+                    <div class="form-column">
+                        <div class="container-field">
+                            <label for="html">Materia:</label><br>
+                            <select class="field-input" name="select">
+                                <option value="value2" selected>Calculo I</option>
+                            </select>
+                        </div>
+                        <div class="container-field">
+                            <input type="checkbox" name="" id="" class="checkbox">
+                            <label for="html">Reserva por urgencia</label><br>
+                        </div>
+                        <div class="container-field">
+                            <label for="html">Periodo(s):</label><br>
+                            <select class="field-input" name="select">
+                                <option value="value3" >1</option>
+                                <option value="value3" >2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="container-field">
+                            <label for="html">Grupo:</label><br>
+                            <select class="field-input" disabled name="select">
+                                <option value="value3" selected ></option>
+                            </select>
+                        </div>
+                        <div class="container-field">
+                            <label for="html">Fecha de reserva:</label><br>
+                            <input class="field-input" type="date" id="birthday" name="birthday">
+                        </div>
+                        <div class="container-field">
+                            <label for="html">Ambiente:</label><br>
+                            <select class="field-input" name="select">
+                                <option value="value3" >Aula común</option>
+                                <option value="value3" >Laboratorio</option>
+                                <option value="value3" >Auditorio</option>
+                            </select>
+                        </div>
+                        <div class="container-field">
+                            <label for="html">Ambientes disponibles:</label><br>
+                            <select class="field-input" name="select">
+                                <option value="value3" >691A</option>
+                            </select>
+                        </div>
+                    </div>                    
+                </div>
+                <br>
+                <div class="form-field">
+                    <label for="html" id="motivo">Motivo de la reserva : </label><br>
+                    <textarea class="text-area" name="" id="" cols="65" rows="2" ></textarea>
+                </div>
+                <div>
+                    <input class="btn btn-primary" type="submit" id="Enviar" name=""  value="Enviar">
+                </div>
+                
+                
+            </form>
+        </div>
+    </div>
+
+        <footer>
+        </footer>
+    </div>
+    </body>
+</html>
