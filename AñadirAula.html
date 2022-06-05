@@ -138,20 +138,20 @@
             <h1>Registro Aula</h1>
             <div class="datos">
              <br>
-             <form action="post">
-               <li><label>Nombre</label><input type="text" placeholder="Nombre"  size="30"class="inputs"  required></li>
+             <form action="InsertarAula.php" method="post">
+               <li><label>Nombre</label><input class="campos" type="text" name="usuario" value="" placeholder="Nombre" minlength="1" id="cUsuario" size="30" required></li>
                <li>
                 <div class="btn-group">
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Ambiente</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                          <option>Aula comun</option>
-                          <option>Laboratorio</option>
-                          <option>Auditorio</option>
+                        <label for="select">Ambiente</label>
+                        <select class="form-control" name="select" id="select">
+                          <option value="Aula Comun" >Aula comun</option>
+                          <option value="Laboratorio">Laboratorio</option>
+                          <option value="Auditorio">Auditorio</option>
                         </select>
-                      </div></li>
+                    </div></li>
                <li><label>Capacidad</label></li>
-               <li><input type="number" placeholder="Capacidad" onkeypress=" SoloNumeros(event);" min="1" class="inputs" required></li>
+               <li><input class="campos" type="number" name="capacidadaula" value="" placeholder="Capacidad" onkeypress=" SoloNumeros(event);" min="1"  required></li>
                <li id="cancelar"><input type="reset" class="btn btn-primary cancelar" value="Cancelar" onclick=" confirmarCancelar()"></li>
                <li id="enviar"><input type="submit" class="btn btn-primary enviar"></li>
              </form>

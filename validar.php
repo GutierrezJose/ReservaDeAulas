@@ -23,15 +23,10 @@ if($filasAdmin){
     header("Location: OrdenLlegada.php");
     exit;
 }else {
-    ?>
-    <h1> 
-        <script>
-            alert("Error al iniciar sesion"); 
-        </script>
-    </h1>
-    <?php
-        header("Status: 301 Moved Permanently");
-        header("Location: login.html");
+    echo "<script>";
+    echo "if(confirm('Error al iniciar sesion'));";  
+    echo "window.location = 'Login.html';";
+    echo "</script>";
 }
 }
 $conexion->close();
