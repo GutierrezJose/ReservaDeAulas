@@ -16,11 +16,11 @@ $filasDocente=mysqli_num_rows($resultadoDocente);
 $filasAdmin=mysqli_num_rows($resultadoAdmin);
 if($filasAdmin){
     header("Status: 301 Moved Permanently");
-    header("Location: http://localhost/tis/ReservaAula.php");
+    header("Location: ReservaAula.php");
     exit;
 }else {if($filasDocente){
     header("Status: 301 Moved Permanently");
-    header("Location: http://localhost/tis/OrdenLlegada.php");
+    header("Location: OrdenLlegada.php");
     exit;
 }else {
     ?>
@@ -31,7 +31,7 @@ if($filasAdmin){
     </h1>
     <?php
         header("Status: 301 Moved Permanently");
-        header("Location: http://localhost/tis/login.html");
+        header("Location: login.html");
 }
 }
 $conexion->close();

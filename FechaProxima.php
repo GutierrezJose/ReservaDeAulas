@@ -2,7 +2,7 @@
 $server = "localhost";
     $user = "root";
     $password = "root";
-    $dataBase = "tarea";
+    $dataBase = "ReservaDeAulas";
     $conexion = mysqli_connect($server, $user, $password, $dataBase);
 ?>
 
@@ -82,7 +82,7 @@ $server = "localhost";
                 <?php
                         $llegada = "    select r.id_reserva, r.fecha_reserva, r.hora_inicio,r.periodo,d.nombre_usuario,r.cod_aula,r.reporte
                                         from reserva r, docente d
-                                        where r.codigo_sis=d.codigo_sis
+                                        where r.codigo_sis=d.codigo_sis and urgencia = false
                                         order by r.fecha_reserva asc;";
                         $resultado = $conexion->query($llegada);
                         if ($resultado->num_rows > 0) {

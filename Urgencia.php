@@ -2,7 +2,7 @@
 $server = "localhost";
     $user = "root";
     $password = "root";
-    $dataBase = "tarea";
+    $dataBase = "ReservaDeAulas";
     $conexion = mysqli_connect($server, $user, $password, $dataBase);
 ?>
 <!doctype html>
@@ -80,7 +80,31 @@ $server = "localhost";
                     <th>Justificacion</th>
                 </tr>
             </thead>
-            
+            <tbody>
+                <tr class="table-success">
+                    <?php
+                        $llegada = "    select r.id_reserva, r.fecha_reserva, r.hora_inicio,r.periodo,d.nombre_usuario,r.cod_aula,r.reporte
+                                        from reserva r, docente d
+                                        where r.codigo_sis=d.codigo_sis and urgencia = true
+                                        order by r.id_reserva asc;";
+                        $resultado = $conexion->query($llegada);
+                        if ($resultado->num_rows > 0) {
+                            while ($filas = $resultado -> fetch_assoc()) {
+                                ?>
+                                <th><?php echo $filas["id_reserva"]?></th> 
+                                <th><?php echo $filas["fecha_reserva"]?></th> 
+                                <th><?php echo $filas["hora_inicio"]?></th> 
+                                <th><?php echo $filas["periodo"]?></th> 
+                                <th><?php echo $filas["nombre_usuario"]?></th> 
+                                <th><?php echo $filas["cod_aula"]?></th> 
+                                <th><?php echo $filas["reporte"]?></th>
+                </tr>
+                                <?php
+                            }
+                        }
+                            $conexion->close();
+                                ?>
+            </tbody>
             </table>
         </div>
         </div>
