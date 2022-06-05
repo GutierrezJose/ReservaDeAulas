@@ -1,8 +1,8 @@
 <?php
 $server = "localhost";
 $user = "root";
-$password = "root";
-$dataBase = "reservadeaulas";
+$password = "";
+$dataBase = "reservadeaula";
 $usuario=$_POST['usuario'];
 $contraseña=$_POST['contraseña'];
 session_start();
@@ -31,7 +31,7 @@ if($filasAdmin){
     </h1>
     <?php
         header("Status: 301 Moved Permanently");
-        header("Location: http://localhost/tis/login.html");
+        header("Location: http://localhost/ReservaDeAulas/login.html");
 }
 }
 $conexion->close();

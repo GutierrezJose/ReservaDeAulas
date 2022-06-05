@@ -1,8 +1,8 @@
 <?php
 $server = "localhost";
     $user = "root";
-    $password = "root";
-    $dataBase = "tarea";
+    $password = "";
+    $dataBase = "reservadeaula";
     $conexion = mysqli_connect($server, $user, $password, $dataBase);
 ?>
 <!doctype html>
@@ -25,6 +25,7 @@ $server = "localhost";
         <header id="cabecera">
           <img src="images/fcyt.png" id="logoFCYT">
           <a href="http://sagaa.fcyt.umss.edu.bo" id="nos"> Acerca de nosotros</a>
+          <a href="PaginaPrincipal.html" class="btn btn-primary" id="Inicio"> Cerrar Sesion </a>
         </header>
     </div>
     <div class="wrapper">
@@ -46,6 +47,9 @@ $server = "localhost";
                 </li>
                 <li>
                     <a href="MAXmin.html" class="d-block  p-3"><i class="icon ion-md-create mr-2 lead"></i> Cambiar limite de reservas</a>
+                </li>
+                <li>
+                    <a href="RegistroCambiosDeMaxMin.html" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Registro de cambios de limite</a>
                 </li>
                 <li>
                     <a href="AñadirAula.html" class="d-block  p-3"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aulas</a>
