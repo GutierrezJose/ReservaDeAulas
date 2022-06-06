@@ -1,6 +1,6 @@
 <?php
 $server = "localhost";
-    $user = "sergio";
+    $user = "root";
     $password = "";
     $dataBase = "reservadeaulas";
     $conexion = mysqli_connect($server, $user, $password, $dataBase);

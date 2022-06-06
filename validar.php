@@ -1,6 +1,6 @@
 <?php
 $server = "localhost";
-$user = "sergio";
+$user = "root";
 $password = "";
 $dataBase = "reservadeaulas";
 $usuario=$_POST['usuario'];

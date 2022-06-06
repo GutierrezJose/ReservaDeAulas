@@ -1,3 +1,23 @@
+<?php
+$server = "localhost";
+$user = "root";
+$password = "";
+$dataBase = "reservadeaulas";
+$conexion = mysqli_connect($server, $user, $password, $dataBase);
+
+$diaMinimo = "select diaMinimo
+                from configuracion
+                where id_configuracion=1;";
+$diaMaximo = "select diaMaximo
+                from configuracion
+                where id_configuracion=1;";
+$consultaMin = $conexion->query($diaMinimo);
+$consultaMax = $conexion->query($diaMaximo);
+$Min = $consultaMin -> fetch_assoc();
+$Max = $consultaMax -> fetch_assoc();
+$conexion->close();
+?>
+
 <!doctype html>
 <html lang="en">
   <head>  
@@ -70,8 +90,8 @@
                <li><label>Motivo del cambio</label><input class="campos" name="motivo" value="" type="text" placeholder="Motivo por el que hace el cambio" size="30"  class="inputs" required></li>
                <li id="cancelar"><input type="reset" class="btn btn-primary cancelar" value="Cancelar"></li>
                <li id="enviar"><input type="submit" class="btn btn-primary enviar" value="Guardar"></li>
-               <li><label><strong>Numero de dias maximo actual: </strong></label></li>
-               <li><label><strong>Numero de dias minimo actual: </strong></label></li>
+               <li><label><strong>Numero de dias maximo actual: <?php echo $Max["diaMaximo"]?> </strong></label></li>
+               <li><label><strong>Numero de dias minimo actual: <?php echo $Min["diaMinimo"]?> </strong></label></li>
              </form>
           </div>
         </div>
