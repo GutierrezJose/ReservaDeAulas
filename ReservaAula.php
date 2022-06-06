@@ -1,7 +1,11 @@
+
 <?php
+
+
+session_start();
 $server = "localhost";
-    $user = "sergio";
-    $password = "";
+    $user = "dani";
+    $password = "root";
     $dataBase = "reservadeaulas";
     $conexion = mysqli_connect($server, $user, $password, $dataBase);
     $query1 = "SELECT diaMinimo FROM configuracion";
@@ -17,7 +21,15 @@ $server = "localhost";
         $filas2 = $resultado2 -> fetch_assoc(); 
         $diaMaximo = $filas2["diaMaximo"];
     //agregado
+
+
     $sumaDiaMaximo = $fecha + $diaMaximo;
+    $CD=$_SESSION['codSis'];
+
+    $cosito= mysqli_query($conexion,"SELECT NOMBRE_MATERIA FROM MATERIA where codigo_sis='$CD'" );
+
+
+    
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -47,7 +59,10 @@ $server = "localhost";
         <div id="sidebar-container">
           <div class="menu">
             <i class="bi bi-person-fill" id="User"></i>
-            <h6>NOMBRE DOCENTE</h6>
+
+             <!--  <h6>NOMBRE DOCENTE</h6>-->
+
+            <h6><?php echo $_SESSION['nUsuario'] ?></h6>
           </div> 
         </div>
         <div class="formulario">
@@ -57,11 +72,14 @@ $server = "localhost";
                     <div class="form-column">
                         <div class="container-field">
                             <label for="html">Nombre docente:</label><br>
-                                <input type="text" class="field-input" disabled>
+                                  <!--  DANI-->
+
+                                <input type="text" class="field-input" value = "<?php echo  $_SESSION['nUsuario'] ?>" disabled>
                         </div>
                         <div class="container-field">
                             <label for="html">Numero estudiantes:</label><br>
-                                <input type="text" class="field-input" disabled>
+                                <input type="text" class="field-input" value = "<?php echo $_SESSION['cantEstudiantes'] ?>" disabled>
+
                         </div>
                         <div class="container-field">
                             <label for="html">Hora inicio:</label><br>
@@ -86,14 +104,35 @@ $server = "localhost";
                                 <option value="value2" selected>Calculo I</option>
                             </select>
                         </div> -->
+                   
+                   
+                   
                     </div>
+                    
+                     
                     <div class="form-column">
                         <div class="container-field">
                             <label for="html">Materia:</label><br>
                             <select class="field-input" name="select">
-                                <option value="value2" selected>Calculo I</option>
+                            <?php 
+                            while($datos = mysqli_fetch_array($cosito)) {
+
+                                ?>
+                                <option value=""> <?php echo $datos['NOMBRE_MATERIA'] ?></option>
+                            <?php 
+                            } 
+                            ?>
+                              
+                            
+                           
+                               
+                                
                             </select>
                         </div>
+
+
+
+
                         <div class="container-field">
                             <input type="checkbox" name="" id="" class="checkbox">
                             <label for="html">Reserva por urgencia</label><br>
@@ -110,8 +149,12 @@ $server = "localhost";
                         <div class="container-field">
                             <label for="html">Grupo:</label><br>
                             <select class="field-input" name="select">
-                                <option value="value3" selected>G3</option>
+                                <option value="value3" ><?php echo $_SESSION['grupo'] ?></option>
+                           
                             </select>
+                                
+                              
+                            
                         </div>
                         <div class="container-field">
                             <label for="html">Fecha de reserva:</label><br>
