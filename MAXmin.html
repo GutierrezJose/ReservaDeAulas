@@ -48,7 +48,7 @@
                     <a href="AñadirAula.html" class="d-block  p-3"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aulas</a>
                 </li>
                 <li>
-                    <a href="ListaDeAulas.html" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
+                    <a href="ListaDeAulas.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
                 </li>
             </li>
         </nav>          
@@ -64,10 +64,10 @@
             <h1>Cambiar los dias limite para reservar</h1>
             <div class="datos">
              <br>
-             <form action="post">
-               <li><label>Maximo de dias</label><input type="number" placeholder="Maximo de dias" min="1"  class="inputs"  required></li>
-               <li><label>Minimo de dias</label><input type="number" placeholder="Minimo de dias" min="1" class="inputs"  required></li>
-               <li><label>Motivo del cambio</label><input type="text" placeholder="Motivo por el que hace el cambio" size="30"  class="inputs" required></li>
+             <form action="InsertarDias.php" method="post">
+               <li><label>Maximo de dias</label><input class="campos" name="maximo" value="" type="number" placeholder="Maximo de dias" min="1"  class="inputs"  required></li>
+               <li><label>Minimo de dias</label><input class="campos" name="minimo" value="" type="number" placeholder="Minimo de dias" min="1" class="inputs"  required></li>
+               <li><label>Motivo del cambio</label><input class="campos" name="motivo" value="" type="text" placeholder="Motivo por el que hace el cambio" size="30"  class="inputs" required></li>
                <li id="cancelar"><input type="reset" class="btn btn-primary cancelar" value="Cancelar"></li>
                <li id="enviar"><input type="submit" class="btn btn-primary enviar" value="Guardar"></li>
                <li><label><strong>Numero de dias maximo actual: </strong></label></li>

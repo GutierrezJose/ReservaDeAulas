@@ -1,13 +1,16 @@
 <?php
 $server = "localhost";
-    $user = "root";
-    $password = "";
-    $dataBase = "reservadeaula";
-    $conexion = mysqli_connect($server, $user, $password, $dataBase);
+$user = "root";
+$password = "root";
+$dataBase = "ReservaDeAulas";
+$conexion = mysqli_connect($server, $user, $password, $dataBase);
 ?>
 <!doctype html>
 <html lang="en">
   <head>  
+    <script>
+        
+    </script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +21,7 @@ $server = "localhost";
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="Urgencia.css">
     <script type="text/javascript"></script>
-    <title>Lista de reservas por orden de llegada</title> 
+    <title>Lista de aulas</title> 
   </head>
 <body>
     <div class="contenedor">
@@ -49,9 +52,6 @@ $server = "localhost";
                     <a href="MAXmin.html" class="d-block  p-3"><i class="icon ion-md-create mr-2 lead"></i> Cambiar limite de reservas</a>
                 </li>
                 <li>
-                    <a href="RegistroCambiosDeMaxMin.html" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Registro de cambios de limite</a>
-                </li>
-                <li>
                     <a href="AñadirAula.html" class="d-block  p-3"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aulas</a>
                 </li>
                 <li>
@@ -67,41 +67,32 @@ $server = "localhost";
                 
             </div>
         </nav>
-        
         <div class="container">
+            <h1>Lista de aulas registradas</h1>
             <div class="table-responsive">
             <table class="table table-striped table-bordered">
                 <thead class="thead-ligth">
                 <br>
                 <tr>
-                    <th>Codigo</th>
-                    <th>Fecha</th>
-                    <th>Hora inicio</th>
-                    <th>Periodo</th>
-                    <th>Docente</th>
+                    <th>Numero</th>
                     <th>Ambiente</th>
-                    <th>Motivo</th>
-                    <th>Justificacion</th>
+                    <th>Capacidad</th>
+
                 </tr>
             </thead>
             <tbody>
                 <tr class="table-success">
                     <?php
-                        $llegada = "    select r.id_reserva, r.fecha_reserva, r.hora_inicio,r.periodo,d.nombre_usuario,r.cod_aula,r.reporte
-                                        from reserva r, docente d
-                                        where r.codigo_sis=d.codigo_sis and urgencia = true
-                                        order by r.id_reserva asc;";
-                        $resultado = $conexion->query($llegada);
+                        $ambiente = "select cod_aula,tipo_aula,capacidad
+                                    from ambiente";
+                        $resultado = $conexion->query($ambiente);
                         if ($resultado->num_rows > 0) {
                             while ($filas = $resultado -> fetch_assoc()) {
                                 ?>
-                                <th><?php echo $filas["id_reserva"]?></th> 
-                                <th><?php echo $filas["fecha_reserva"]?></th> 
-                                <th><?php echo $filas["hora_inicio"]?></th> 
-                                <th><?php echo $filas["periodo"]?></th> 
-                                <th><?php echo $filas["nombre_usuario"]?></th> 
                                 <th><?php echo $filas["cod_aula"]?></th> 
-                                <th><?php echo $filas["reporte"]?></th>
+                                <th><?php echo $filas["tipo_aula"]?></th> 
+                                <th><?php echo $filas["capacidad"]?></th> 
+
                 </tr>
                                 <?php
                             }
@@ -109,17 +100,9 @@ $server = "localhost";
                             $conexion->close();
                                 ?>
             </tbody>
-            </table>
-        </div>
-        </div>
-    </div>   
-    
-    <script>
-        $(document).ready(function(){
-            $("#sidebarCollapse").on('click',function(){
-                $("#sidebar").toggleClass('active');
-            });
-        });
-    </script>
+    </table>
+</div>
+</div>
+</div>   
 </body>
 </html>

@@ -56,7 +56,7 @@ $conexion = mysqli_connect($server, $user, $password, $dataBase);
                     <a href="AñadirAula.html" class="d-block  p-3"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aulas</a>
                 </li>
                 <li>
-                    <a href="ListaDeAulas.html" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
+                    <a href="ListaDeAulas.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
                 </li>
             </li>
         </nav>      
@@ -89,7 +89,7 @@ $conexion = mysqli_connect($server, $user, $password, $dataBase);
                     <?php
                         $llegada = "    select r.id_reserva, r.fecha_reserva, r.hora_inicio,r.periodo,d.nombre_usuario,r.cod_aula,r.reporte
                                         from reserva r, docente d
-                                        where r.codigo_sis=d.codigo_sis
+                                        where r.codigo_sis=d.codigo_sis and urgencia = false
                                         order by r.id_reserva asc;";
                         $resultado = $conexion->query($llegada);
                         if ($resultado->num_rows > 0) {
