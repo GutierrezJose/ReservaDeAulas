@@ -1,7 +1,7 @@
 <?php
 $server = "localhost";
-$user = "root";
-$password = "root";
+$user = "sergio";
+$password = "";
 $dataBase = "reservadeaulas";
 
 $maximo=$_POST['maximo'];
@@ -18,14 +18,14 @@ $InsDias = "insert historial_cambios (id_configuracion,fecha_de_cambio,cant_mini
 if($minimo > $maximo){
     echo "<script>";
     echo "if(confirm('Dia Minimo no puede ser mayor a dia maximo'));";  
-    echo "window.location = 'MAXmin.html';";
+    echo "window.location = 'MAXmin.php';";
     echo "</script>";
 }else{
     $actualizar = $conexion->query($updateConf);
     $insertar = $conexion->query($InsDias);
     echo "<script>";
     echo "if(confirm('Se Actualizo los dias minimos y maximos'));";  
-    echo "window.location = 'MAXmin.html';";
+    echo "window.location = 'MAXmin.php';";
     echo "</script>";
 
 }

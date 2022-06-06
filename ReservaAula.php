@@ -1,7 +1,7 @@
 <?php
 $server = "localhost";
-    $user = "root";
-    $password = "root";
+    $user = "sergio";
+    $password = "";
     $dataBase = "reservadeaulas";
     $conexion = mysqli_connect($server, $user, $password, $dataBase);
     $query1 = "SELECT diaMinimo FROM configuracion";
