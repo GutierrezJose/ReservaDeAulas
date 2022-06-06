@@ -1,7 +1,7 @@
 
 <?php
 $server = "localhost";
-$user = "root";
+$user = "sergio";
 $password = "";
 $dataBase = "reservadeaulas";
 $codAula=$_POST['usuario'];
