@@ -1,14 +1,11 @@
 <?php
-$server = "localhost";
-$user = "sergio";
-$password = "";
-$dataBase = "reservadeaulas";
+include 'conexion.php';
 
 $maximo=$_POST['maximo'];
 $minimo=$_POST['minimo'];
 $motivo=$_POST['motivo'];
 session_start();
-$conexion = mysqli_connect($server, $user, $password, $dataBase);
+
 
 $updateConf = "update configuracion
                 set diaMinimo = $minimo, diaMaximo = $maximo

@@ -1,14 +1,10 @@
 
 <?php
-$server = "localhost";
-$user = "sergio";
-$password = "";
-$dataBase = "reservadeaulas";
+include 'conexion.php';
 $codAula=$_POST['usuario'];
 $capacidadAula=$_POST['capacidadaula'];
 $tipoAula=$_POST['select'];
 session_start();
-$conexion = mysqli_connect($server, $user, $password, $dataBase);
 $verificar ="select * 
             from ambiente
             where cod_aula = '$codAula'";

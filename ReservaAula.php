@@ -3,11 +3,7 @@
 
 
 session_start();
-$server = "localhost";
-    $user = "dani";
-    $password = "root";
-    $dataBase = "reservadeaulas";
-    $conexion = mysqli_connect($server, $user, $password, $dataBase);
+include 'conexion.php';
     $query1 = "SELECT diaMinimo FROM configuracion";
     $query2 = "SELECT diaMaximo FROM configuracion";
     $resultado = $conexion -> query($query1);
@@ -26,7 +22,9 @@ $server = "localhost";
     $sumaDiaMaximo = $fecha + $diaMaximo;
     $CD=$_SESSION['codSis'];
 
-    $cosito= mysqli_query($conexion,"SELECT NOMBRE_MATERIA FROM MATERIA where codigo_sis='$CD'" );
+    $cosito= mysqli_query($conexion,"SElECT m.NOMBRE_MATERIA 
+                                    FROM docente d,materia m ,puede_tener p 
+                                    where d.codigo_sis= $CD and d.codigo_sis=p.CODIGO_SIS and p.COD_SIS_MATERIA = m.COD_SIS_MATERIA;" );
 
 
     

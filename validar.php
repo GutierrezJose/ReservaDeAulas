@@ -1,13 +1,9 @@
 <?php
-$server = "localhost";
-$user = "dani";
-$password = "root";
-$dataBase = "reservadeaulas";
+include 'conexion.php';
 $usuario=$_POST['usuario'];
 $contraseña=$_POST['contraseña'];
 session_start();
 $_SESSION['usuario']=$usuario;
-$conexion = mysqli_connect($server, $user, $password, $dataBase);
 $consultaDocente="SElECT*FROM docente where codigo_sis='$usuario' and contrasena_usuario='$contraseña' and administrador = true";
 $consultaAdmin="SElECT*FROM docente where codigo_sis='$usuario' and contrasena_usuario='$contraseña' and administrador = false";
 $resultadoDocente=mysqli_query($conexion,$consultaDocente);
@@ -17,7 +13,7 @@ $filasAdmin=mysqli_num_rows($resultadoAdmin);
 
 
 
-$consulta = "SElECT*FROM docente where codigo_sis='$usuario'";
+$consulta = "SElECT*FROM docente d where d.codigo_sis='$usuario';";
 $resultado = mysqli_query($conexion, $consulta);
 $filas = mysqli_fetch_array($resultado);
 
@@ -32,7 +28,9 @@ if($filas){
 
 
 
-$consulta2 = "SElECT * FROM materia where codigo_sis='$usuario'";
+$consulta2 = "SElECT m.COD_SIS_MATERIA, m.NOMBRE_MATERIA 
+                FROM docente d,materia m ,puede_tener p 
+                where d.codigo_sis= $usuario and d.codigo_sis=p.CODIGO_SIS and p.COD_SIS_MATERIA = m.COD_SIS_MATERIA;";
 $resultado2 = mysqli_query($conexion, $consulta2);
 //$filas2 = mysqli_fetch_array($resultado2, MYSQLI_BOTH);
 $array_data = [];
@@ -46,26 +44,26 @@ array_push($array_data, $valores);
 
 
 
-$consulta3 = "SElECT*FROM grupo where codigo_sis='$usuario'";
-$resultado3 = mysqli_query($conexion, $consulta3);
-$filas3 = mysqli_fetch_array($resultado3);
+//$consulta3 = "SElECT*FROM grupo where codigo_sis='$usuario'";
+//$resultado3 = mysqli_query($conexion, $consulta3);
+//$filas3 = mysqli_fetch_array($resultado3);
 
-if($filas3){   
-    $_SESSION['grupo']   = $filas3['COD_GRUPO'];
-    $_SESSION['cantEstudiantes']   = $filas3['CANTIDAD_INSCRITOS'];
-}
+//if($filas3){   
+///    $_SESSION['grupo']   = $filas3['COD_GRUPO'];
+//    $_SESSION['cantEstudiantes']   = $filas3['CANTIDAD_INSCRITOS'];
+//}
 
 
 
 if($filasAdmin){
     
     header("Status: 301 Moved Permanently");
-    header("Location: http://localhost:88/ReservaDeAulas/ReservaDeAulas/ReservaAula.php");
+    header("Location: ReservaAula.php");
     exit;
 }else {if($filasDocente){
     
     header("Status: 301 Moved Permanently");
-    header("Location: http://localhost:88/ReservaDeAulas/ReservaDeAulas/OrdenLlegada.php");
+    header("Location: OrdenLlegada.php");
     exit;
 }else {
     ?>
@@ -76,7 +74,7 @@ if($filasAdmin){
     </h1>
     <?php
         header("Status: 301 Moved Permanently");
-        header("Location: http://localhost:88/ReservaDeAulas/ReservaDeAulas/login.html");
+        header("Location: login.html");
 }
 }
 $conexion->close();

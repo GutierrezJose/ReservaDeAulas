@@ -1,9 +1,5 @@
 <?php
-$server = "localhost";
-$user = "sergio";
-$password = "";
-$dataBase = "reservadeaulas";
-$conexion = mysqli_connect($server, $user, $password, $dataBase);
+include 'conexion.php';
 ?>
 
 <!doctype html>
