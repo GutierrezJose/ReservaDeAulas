@@ -42,7 +42,7 @@ include 'conexion.php';
                     <a href="Urgencia.php" class="d-block  p-3"><i class="icon ion-md-alert mr-2 lead"></i> Reservas por urgencia</a>
                 </li>
                 <li>
-                    <a href="MAXmin.html" class="d-block  p-3"><i class="icon ion-md-create mr-2 lead"></i> Cambiar limite de reservas</a>
+                    <a href="MAXmin.php" class="d-block  p-3"><i class="icon ion-md-create mr-2 lead"></i> Cambiar limite de reservas</a>
                 </li>
                 <li>
                     <a href="RegistroCambiosDeMaxMin.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Registro de cambios de limite</a>
@@ -84,7 +84,7 @@ include 'conexion.php';
                 <tr class="table-success">
                     <?php
                         $llegada = "    select r.id_reserva, r.fecha_reserva, r.hora_inicio,r.periodo,d.nombre_usuario,r.cod_aula,r.reporte
-                                        from reserva r, docente d
+                                        from reserva r, usuario d
                                         where r.codigo_sis=d.codigo_sis and urgencia = true
                                         order by r.id_reserva asc;";
                         $resultado = $conexion->query($llegada);

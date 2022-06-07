@@ -4,8 +4,8 @@
 
 session_start();
 include 'conexion.php';
-    $query1 = "SELECT diaMinimo FROM configuracion";
-    $query2 = "SELECT diaMaximo FROM configuracion";
+     $query1 = "SELECT diaMinimo FROM configuracion where id_configuracion=1;";
+     $query2 = "SELECT diaMaximo FROM configuracion where id_configuracion=1;";
     $resultado = $conexion -> query($query1);
         $filas = $resultado -> fetch_assoc();
         $diaMinino =  $filas["diaMinimo"];
@@ -15,7 +15,7 @@ include 'conexion.php';
         //agregado
     $resultado2 = $conexion -> query($query2);
         $filas2 = $resultado2 -> fetch_assoc(); 
-        $diaMaximo = $filas2["diaMaximo"];
+       $diaMaximo = $filas2["diaMaximo"];
     //agregado
 
 
@@ -23,7 +23,7 @@ include 'conexion.php';
     $CD=$_SESSION['codSis'];
 
     $cosito= mysqli_query($conexion,"SElECT m.NOMBRE_MATERIA 
-                                    FROM docente d,materia m ,puede_tener p 
+                                    FROM usuario d,materia m ,puede_tener p 
                                     where d.codigo_sis= $CD and d.codigo_sis=p.CODIGO_SIS and p.COD_SIS_MATERIA = m.COD_SIS_MATERIA;" );
 
 
@@ -65,7 +65,7 @@ include 'conexion.php';
         </div>
         <div class="formulario">
             <h3>Reserva de Aula</h3><br>
-            <form class="datos" action="Post">
+            <form class="datos" action="InsertarReserva.php" method="post">
                 <div class="form-field">
                     <div class="form-column">
                         <div class="container-field">
@@ -156,7 +156,7 @@ include 'conexion.php';
                         </div>
                         <div class="container-field">
                             <label for="html">Fecha de reserva:</label><br>
-                            <input class="field-input" type="date" id="birthday" name="birthday">
+                            <input name="calen" type="text" class="form-control fj-date" placeholder = "dd/mm/aaaa" readonly>
                             <Script>
                                 var sumaDiaMinimo = 1+<?php echo $diaMinino?>;
                                 var diaMinimo = '+'+sumaDiaMinimo+'d';

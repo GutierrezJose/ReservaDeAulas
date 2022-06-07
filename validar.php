@@ -4,8 +4,8 @@ $usuario=$_POST['usuario'];
 $contraseña=$_POST['contraseña'];
 session_start();
 $_SESSION['usuario']=$usuario;
-$consultaDocente="SElECT*FROM docente where codigo_sis='$usuario' and contrasena_usuario='$contraseña' and administrador = true";
-$consultaAdmin="SElECT*FROM docente where codigo_sis='$usuario' and contrasena_usuario='$contraseña' and administrador = false";
+$consultaDocente="SElECT*FROM usuario where codigo_sis='$usuario' and contrasena_usuario='$contraseña' and administrador = true";
+$consultaAdmin="SElECT*FROM usuario where codigo_sis='$usuario' and contrasena_usuario='$contraseña' and administrador = false";
 $resultadoDocente=mysqli_query($conexion,$consultaDocente);
 $resultadoAdmin=mysqli_query($conexion,$consultaAdmin);
 $filasDocente=mysqli_num_rows($resultadoDocente);
@@ -13,7 +13,7 @@ $filasAdmin=mysqli_num_rows($resultadoAdmin);
 
 
 
-$consulta = "SElECT*FROM docente d where d.codigo_sis='$usuario';";
+$consulta = "SElECT*FROM usuario d where d.codigo_sis='$usuario';";
 $resultado = mysqli_query($conexion, $consulta);
 $filas = mysqli_fetch_array($resultado);
 
@@ -29,7 +29,7 @@ if($filas){
 
 
 $consulta2 = "SElECT m.COD_SIS_MATERIA, m.NOMBRE_MATERIA 
-                FROM docente d,materia m ,puede_tener p 
+                FROM usuario d,materia m ,puede_tener p 
                 where d.codigo_sis= $usuario and d.codigo_sis=p.CODIGO_SIS and p.COD_SIS_MATERIA = m.COD_SIS_MATERIA;";
 $resultado2 = mysqli_query($conexion, $consulta2);
 //$filas2 = mysqli_fetch_array($resultado2, MYSQLI_BOTH);
