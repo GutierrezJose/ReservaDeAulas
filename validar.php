@@ -29,7 +29,7 @@ if($filas){
 
 
 $consulta2 = "SElECT m.COD_SIS_MATERIA, m.NOMBRE_MATERIA 
-                FROM usuario d,materia m ,puede_tener p 
+                FROM usuario d,materia m ,docente_materia p 
                 where d.codigo_sis= $usuario and d.codigo_sis=p.CODIGO_SIS and p.COD_SIS_MATERIA = m.COD_SIS_MATERIA;";
 $resultado2 = mysqli_query($conexion, $consulta2);
 //$filas2 = mysqli_fetch_array($resultado2, MYSQLI_BOTH);

@@ -22,8 +22,8 @@ include 'conexion.php';
     $sumaDiaMaximo = $fecha + $diaMaximo;
     $CD=$_SESSION['codSis'];
 
-    $cosito= mysqli_query($conexion,"SElECT m.NOMBRE_MATERIA 
-                                    FROM usuario d,materia m ,puede_tener p 
+    $materia= mysqli_query($conexion,"SElECT m.NOMBRE_MATERIA 
+                                    FROM usuario d,materia m ,docente_materia p 
                                     where d.codigo_sis= $CD and d.codigo_sis=p.CODIGO_SIS and p.COD_SIS_MATERIA = m.COD_SIS_MATERIA;" );
 
 
@@ -35,6 +35,11 @@ include 'conexion.php';
         <title>Reserva aula</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script>var codigosis = <?php echo $CD ?>; </script>
+        <script language="javascript" src="js/jquery-3.6.0.min.js"></script>
+        <script language="javascript" src="js/grupo.js"></script>
+        <script language="javascript" src="js/estudiantes.js"></script>
+    
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
@@ -72,26 +77,28 @@ include 'conexion.php';
                             <label for="html">Nombre docente:</label><br>
                                   <!--  DANI-->
 
-                                <input type="text" class="field-input" value = "<?php echo  $_SESSION['nUsuario'] ?>" disabled>
+                                <input id="nomDoc" name="nomDoc" type="text" class="field-input" value = "<?php echo  $_SESSION['nUsuario'] ?>" disabled>
                         </div>
                         <div class="container-field">
                             <label for="html">Numero estudiantes:</label><br>
-                                <input type="text" class="field-input" value = "<?php echo $_SESSION['cantEstudiantes'] ?>" disabled>
+                            <div id="estudiantes" name="estudiantes">
+                                
+                            </div>
 
                         </div>
                         <div class="container-field">
                             <label for="html">Hora inicio:</label><br>
-                            <select class="field-input" name="select">
-                                <option value="" selected>6:45</option>
-                                <option value="value1" >8:15</option>
-                                <option value="value1" >9:45</option>
-                                <option value="value1" >11:15</option>
-                                <option value="value1" >12:45</option>
-                                <option value="value1" >14:15</option>
-                                <option value="value1" >15:45</option>
-                                <option value="value1" >17:15</option>
-                                <option value="value1" >18:45</option>
-                                <option value="value1" >20:15</option>
+                            <select class="field-input" name="hora">
+                                <option value="6:45" selected>6:45</option>
+                                <option value="8:15" >8:15</option>
+                                <option value="9:45" >9:45</option>
+                                <option value="11:15" >11:15</option>
+                                <option value="12:45" >12:45</option>
+                                <option value="14:15" >14:15</option>
+                                <option value="15:45" >15:45</option>
+                                <option value="17:15" >17:15</option>
+                                <option value="18:45" >18:45</option>
+                                <option value="20:15" >20:15</option>
                             </select>
                         </div>
                         
@@ -111,20 +118,15 @@ include 'conexion.php';
                     <div class="form-column">
                         <div class="container-field">
                             <label for="html">Materia:</label><br>
-                            <select class="field-input" name="select">
-                            <?php 
-                            while($datos = mysqli_fetch_array($cosito)) {
-
-                                ?>
-                                <option value=""> <?php echo $datos['NOMBRE_MATERIA'] ?></option>
-                            <?php 
-                            } 
-                            ?>
-                              
-                            
-                           
-                               
-                                
+                            <select id="materia" name="materia" class="field-input" onchange="selectmateria()" >
+                                <option value="">Seleccionar Materia </option>
+                                <?php 
+                                while($datosMateria = mysqli_fetch_array($materia)) {
+                                    ?>
+                                    <option value="<?php echo $datosMateria['NOMBRE_MATERIA'] ?>"> <?php echo $datosMateria['NOMBRE_MATERIA'] ?></option>
+                                <?php 
+                                } 
+                                ?>   
                             </select>
                         </div>
 
@@ -132,23 +134,21 @@ include 'conexion.php';
 
 
                         <div class="container-field">
-                            <input type="checkbox" name="" id="" class="checkbox">
+                            <input name="urgencia" type="checkbox" name="" id="" class="checkbox">
                             <label for="html">Reserva por urgencia</label><br>
                         </div>
                         <div class="container-field">
                             <label for="html">Periodo(s):</label><br>
-                            <select class="field-input" name="select">
-                                <option value="value3" >1</option>
-                                <option value="value3" >2</option>
+                            <select class="field-input" name="select3">
+                                <option value="1" >1</option>
+                                <option value="2" >2</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-column">
                         <div class="container-field">
                             <label for="html">Grupo:</label><br>
-                            <select class="field-input" name="select">
-                                <option value="value3" ><?php echo $_SESSION['grupo'] ?></option>
-                           
+                            <select id="grupo" name="grupo" class="field-input" onchange="selectgrupo()" >
                             </select>
                                 
                               
@@ -186,16 +186,16 @@ include 'conexion.php';
                         </div>
                         <div class="container-field">
                             <label for="html">Ambiente:</label><br>
-                            <select class="field-input" name="select">
-                                <option value="value3" >Aula común</option>
-                                <option value="value3" >Laboratorio</option>
-                                <option value="value3" >Auditorio</option>
+                            <select class="field-input" name="select5">
+                                <option value="Aula común" >Aula común</option>
+                                <option value="Laboratorio" >Laboratorio</option>
+                                <option value="Audiotorio" >Auditorio</option>
                             </select>
                         </div>
                         <div class="container-field">
                             <label for="html">Ambientes disponibles:</label><br>
-                            <select class="field-input" name="select">
-                                <option value="value3" >691A</option>
+                            <select class="field-input" name="select6">
+                                <option value="691A" >691A</option>
                             </select>
                         </div>
                     </div>                    
@@ -204,7 +204,7 @@ include 'conexion.php';
                 <div class="form-field">
                     <br>
                     <label for="html" id="motivo">Motivo de la reserva : </label><br>
-                    <textarea class="text-area" name="" id="" cols="65" rows="2" ></textarea>
+                    <textarea name="reporte" class="text-area" name="" id="" cols="65" rows="2" ></textarea>
                 </div>
                 <div>
                     <input class="btn btn-primary" type="submit" id="Enviar" name=""  value="Enviar">
