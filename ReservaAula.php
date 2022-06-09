@@ -35,11 +35,9 @@ include 'conexion.php';
         <title>Reserva aula</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <script>var codigosis = <?php echo $CD ?>; </script>
+        <script> var codigosis = <?php echo $CD ?>; </script>
         <script language="javascript" src="js/jquery-3.6.0.min.js"></script>
-        <script language="javascript" src="js/grupo.js"></script>
-        <script language="javascript" src="js/estudiantes.js"></script>
-    
+        <script language="javascript" src="js/funciones.js"></script>    
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
@@ -82,7 +80,7 @@ include 'conexion.php';
                         <div class="container-field">
                             <label for="html">Numero estudiantes:</label><br>
                             <div id="estudiantes" name="estudiantes">
-                                
+                            <input id='nomDoc' name='nomDoc' type='text' class='field-input' value = "0" disabled>
                             </div>
 
                         </div>
@@ -149,6 +147,7 @@ include 'conexion.php';
                         <div class="container-field">
                             <label for="html">Grupo:</label><br>
                             <select id="grupo" name="grupo" class="field-input" onchange="selectgrupo()" >
+                            <option value=''>Seleccionar Grupo</option>
                             </select>
                                 
                               
@@ -186,16 +185,17 @@ include 'conexion.php';
                         </div>
                         <div class="container-field">
                             <label for="html">Ambiente:</label><br>
-                            <select class="field-input" name="select5">
+                            <select id = "ambiente" name="ambiente" class="field-input" onchange="selectambiente();" )>
+                                <option value="Aula común" >Seleccionar Ambiente</option>
                                 <option value="Aula común" >Aula común</option>
                                 <option value="Laboratorio" >Laboratorio</option>
-                                <option value="Audiotorio" >Auditorio</option>
+                                <option value="Auditorio" >Auditorio</option>
                             </select>
                         </div>
                         <div class="container-field">
                             <label for="html">Ambientes disponibles:</label><br>
-                            <select class="field-input" name="select6">
-                                <option value="691A" >691A</option>
+                            <select id="aula" id="aula "class="field-input"">
+                                <option value="" >Seleccionar Aula</option>
                             </select>
                         </div>
                     </div>                    
