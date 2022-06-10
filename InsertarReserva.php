@@ -1,36 +1,33 @@
-<?php
-$codigoAula=$_POST['select6'];
-$fecha=$_POST['calen'];
-$codigoSis=$_POST['nomDoc'];
-$horaInicio=$_POST['select'];
-$Reporte=$_POST['reporte'];
-$cantEst=$_POST['cantEst'];
-$materia=$_POST['materia'];
-$periodo=$_POST['3'];
-$urgencia=$_POST['urgencia'];
-$grupo=$_POST["grupo"];
-$ambiente=$_POST['select5'];
 
-echo $fecha;
-echo ";";
-echo $codigoAula;
-echo ";";
-echo $codigoSis;
-echo ";";
-echo $horaInicio;
-echo ";";
-echo $Reporte;
-echo ";";
-echo $cantEst;
-echo ";";
-echo $periodo;
-echo ";";
-echo $urgencia;
-echo ";";
-echo $materia;
-echo ";";
-echo $grupo;
-echo ";";
-echo $ambiente;
+<?php
+session_start();
+include 'conexion.php';
+$codSis=$_SESSION['codSis'];
+$codAula=$_POST['aula'];
+$fecha=$_POST['calen'];
+$hora=$_POST['hora'];
+$reporte=$_POST['reporte'];
+$cantEst=$_POST['cantidad'];
+$periodo=$_POST['periodo'];
+$urgencia= ( empty($_POST['urgencia']) ) ? NULL : $_POST['urgencia'];
+$grupo=$_POST["grupo"];
+if($urgencia)
+$urgencia = 'true';
+else
+$urgencia = 'false';
+$consulta="insert reserva (COD_AULA, CODIGO_SIS, FECHA_RESERVA, HORA_INICIO, CONFIRMACION, CANTIDAD_ESTUDIANTES,PERIODO, URGENCIA,REPORTE) 
+            values('$codAula', $codSis, '$fecha', '$hora', true, $cantEst, $periodo, $urgencia, '$reporte');";
+try{
+    $resultado=$conexion->query($consulta);
+    echo "<script>";
+    echo "if(confirm('Se hizo la reserva Correctamente'));";  
+    echo "window.location = 'ReservaAula.php';";
+    echo "</script>";
+}catch (Exception $e) {
+    echo "<script>";
+    echo "if(confirm('Llene todos los campos del formulario'));";  
+    echo "window.location = 'ReservaAula.php';";
+    echo "</script>";
+}
 
 ?>

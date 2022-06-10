@@ -13,7 +13,7 @@ $estu = "select g.CANTIDAD_INSCRITOS
 $resultado = $conexion->query($estu);
 while($cantEst = $resultado -> fetch_assoc()){
     $imprimir= $cantEst["CANTIDAD_INSCRITOS"];
-    $html = "<input id='nomDoc' name='nomDoc' type='text' class='field-input' value = ".$imprimir." disabled>";
+    $html = $imprimir;
 }
 echo $html;
 ?>

@@ -75,28 +75,26 @@ include 'conexion.php';
                             <label for="html">Nombre docente:</label><br>
                                   <!--  DANI-->
 
-                                <input id="nomDoc" name="nomDoc" type="text" class="field-input" value = "<?php echo  $_SESSION['nUsuario'] ?>" disabled>
+                                <input id="nomDoc" name="nomDoc" type="text" class="field-input" value = "<?php echo  $_SESSION['nUsuario'] ?>" readonly>
                         </div>
                         <div class="container-field">
                             <label for="html">Numero estudiantes:</label><br>
-                            <div id="estudiantes" name="estudiantes">
-                            <input id='nomDoc' name='nomDoc' type='text' class='field-input' value = "0" disabled>
-                            </div>
+                            <input id="cantidad" name="cantidad" type="text" class="field-input" value = "0" readonly>
 
                         </div>
                         <div class="container-field">
                             <label for="html">Hora inicio:</label><br>
-                            <select class="field-input" name="hora">
-                                <option value="6:45" selected>6:45</option>
-                                <option value="8:15" >8:15</option>
-                                <option value="9:45" >9:45</option>
-                                <option value="11:15" >11:15</option>
-                                <option value="12:45" >12:45</option>
-                                <option value="14:15" >14:15</option>
-                                <option value="15:45" >15:45</option>
-                                <option value="17:15" >17:15</option>
-                                <option value="18:45" >18:45</option>
-                                <option value="20:15" >20:15</option>
+                            <select class="field-input" name="hora" id="hora" onchange="selecthora()">
+                                <option value="06:45:00" selected>6:45</option>
+                                <option value="08:15:00" >8:15</option>
+                                <option value="09:45:00" >9:45</option>
+                                <option value="11:15:00" >11:15</option>
+                                <option value="12:45:00" >12:45</option>
+                                <option value="14:15:00" >14:15</option>
+                                <option value="15:45:00" >15:45</option>
+                                <option value="17:15:00" >17:15</option>
+                                <option value="18:45:00" >18:45</option>
+                                <option value="20:15:00" >20:15</option>
                             </select>
                         </div>
                         
@@ -132,12 +130,12 @@ include 'conexion.php';
 
 
                         <div class="container-field">
-                            <input name="urgencia" type="checkbox" name="" id="" class="checkbox">
+                        <input id="urgencia" name="urgencia" type="checkbox" class="checkbox" onclick="calendario()">
                             <label for="html">Reserva por urgencia</label><br>
                         </div>
                         <div class="container-field">
                             <label for="html">Periodo(s):</label><br>
-                            <select class="field-input" name="select3">
+                            <select class="field-input" name="periodo" id="periodo" onchange="selectfecha()">
                                 <option value="1" >1</option>
                                 <option value="2" >2</option>
                             </select>
@@ -155,12 +153,11 @@ include 'conexion.php';
                         </div>
                         <div class="container-field">
                             <label for="html">Fecha de reserva:</label><br>
-                            <input name="calen" type="text" class="form-control fj-date" placeholder = "dd/mm/aaaa" readonly>
+                            <input id="calen" name="calen" type="text" class="form-control fj-date" placeholder = "AAAA/MM/DD" readonly onchange="selectfecha()">
                             <Script>
-                                var sumaDiaMinimo = 1+<?php echo $diaMinino?>;
+                                var sumaDiaMinimo = <?php echo $diaMinino?>;
                                 var diaMinimo = '+'+sumaDiaMinimo+'d';
                                 var diaMaximo = '+'+<?php echo $diaMaximo?>+'d';
-                                alert(diaMaximo);
                                 $.fn.datepicker.dates['en'] = {
                                 days: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
                                 daysShort: ["Dom", "Lun", "Mar", "Mie", "Juev", "Vie", "Sab"],
@@ -169,24 +166,17 @@ include 'conexion.php';
                                 monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
                                 today: "Hoy",
                                 clear: "Borrar",
-                                format: "dd/mm/yyyy",
+                                format: "yyyy/mm/dd",
                                 titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
                                 weekStart: 1
                                 };
-                                $('.fj-date').datepicker({
-                                format: "dd/mm/yyyy",
-                                autoclose:true,
-                                pickerPosition: "bottom-left",
-                                daysOfWeekDisabled: [0],
-                                startDate: diaMinimo,
-                                endDate: diaMaximo
-                                });
+                                calendario();
                             </Script>
                         </div>
                         <div class="container-field">
                             <label for="html">Ambiente:</label><br>
                             <select id = "ambiente" name="ambiente" class="field-input" onchange="selectambiente();" )>
-                                <option value="Aula común" >Seleccionar Ambiente</option>
+                                <option value="porDefecto" >Seleccionar Tipo De Ambiente</option>
                                 <option value="Aula común" >Aula común</option>
                                 <option value="Laboratorio" >Laboratorio</option>
                                 <option value="Auditorio" >Auditorio</option>
@@ -194,8 +184,8 @@ include 'conexion.php';
                         </div>
                         <div class="container-field">
                             <label for="html">Ambientes disponibles:</label><br>
-                            <select id="aula" id="aula "class="field-input"">
-                                <option value="" >Seleccionar Aula</option>
+                            <select id="aula" name="aula" class="field-input">
+                                <option value="" >Seleccionar Ambiente</option>
                             </select>
                         </div>
                     </div>                    

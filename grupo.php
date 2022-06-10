@@ -10,7 +10,7 @@ $grupo = "select g.cod_grupo
         order by g.cod_grupo asc;";
 $resultado = $conexion->query($grupo);
 
-$html = "<option value=''>Seleccionar Grupo</option>";
+$html = "<option value='0'>Seleccionar Grupo</option>";
 
 while($rowM = $resultado->fetch_assoc()){
     $html.= "<option value='".$rowM['cod_grupo']."'>".$rowM['cod_grupo']."</option>";
