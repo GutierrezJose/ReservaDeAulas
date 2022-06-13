@@ -114,7 +114,7 @@ include 'conexion.php';
                     <div class="form-column">
                         <div class="container-field">
                             <label for="html">Materia:</label><br>
-                            <select id="materia" name="materia" class="field-input" onchange="selectmateria()" >
+                            <select id="materia" name="materia" class="field-input" onchange="selectmateria()" required>
                                 <option value="">Seleccionar Materia </option>
                                 <?php 
                                 while($datosMateria = mysqli_fetch_array($materia)) {
@@ -144,7 +144,7 @@ include 'conexion.php';
                     <div class="form-column">
                         <div class="container-field">
                             <label for="html">Grupo:</label><br>
-                            <select id="grupo" name="grupo" class="field-input" onchange="selectgrupo()" >
+                            <select id="grupo" name="grupo" class="field-input"  onchange="selectgrupo()">
                             <option value=''>Seleccionar Grupo</option>
                             </select>
                                 
@@ -153,7 +153,7 @@ include 'conexion.php';
                         </div>
                         <div class="container-field">
                             <label for="html">Fecha de reserva:</label><br>
-                            <input id="calen" name="calen" type="text" class="form-control fj-date" placeholder = "AAAA/MM/DD" readonly onchange="selectfecha()">
+                            <input id="calen" name="calen" type="text" class="form-control fj-date" placeholder = "AAAA/MM/DD" readonly onchange="selectfecha()" required>
                             <Script>
                                 var sumaDiaMinimo = <?php echo $diaMinino?>;
                                 var diaMinimo = '+'+sumaDiaMinimo+'d';
@@ -175,7 +175,7 @@ include 'conexion.php';
                         </div>
                         <div class="container-field">
                             <label for="html">Ambiente:</label><br>
-                            <select id = "ambiente" name="ambiente" class="field-input" onchange="selectambiente();" )>
+                            <select required id = "ambiente" name="ambiente" class="field-input" onchange="selectambiente();" )>
                                 <option value="porDefecto" >Seleccionar Tipo De Ambiente</option>
                                 <option value="Aula común" >Aula común</option>
                                 <option value="Laboratorio" >Laboratorio</option>
@@ -194,7 +194,7 @@ include 'conexion.php';
                 <div class="form-field">
                     <br>
                     <label for="html" id="motivo">Motivo de la reserva : </label><br>
-                    <textarea name="reporte" class="text-area" name="" id="" cols="65" rows="2" ></textarea>
+                    <textarea name="reporte" class="text-area" name="" id="" cols="65" rows="2" required></textarea>
                 </div>
                 <div>
                     <input class="btn btn-primary" type="submit" id="Enviar" name=""  value="Enviar">
