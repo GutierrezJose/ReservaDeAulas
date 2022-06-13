@@ -15,14 +15,13 @@ $aula = "select a.cod_aula
                                 from reserva r, ambiente m
                                 where r.COD_AULA = m.COD_AULA and
                                 r.FECHA_RESERVA = '$fecha' and
-                                r.HORA_INICIO = '$hora') $verificar1";
+                                r.HORA_INICIO = '$hora') and a.cod_aula not in (select m.cod_aula
+                                                                                from reserva r, ambiente m
+                                                                                where r.COD_AULA = m.COD_AULA and
+                                                                                r.FECHA_RESERVA = '$fecha' and 
+                                                                                r.PERIODO = 2 and r.HORA_INICIO = '$resta')";
                             
-$verificar1="and a.cod_aula not in (select *
-            from reserva r, ambiente m
-            where r.COD_AULA = m.COD_AULA and
-            r.FECHA_RESERVA = '$fecha' and 
-            r.PERIODO = 2 and r.HORA_INICIO = '$resta')";
-$verificar2="and a.cod_aula not in (select r.cod_aula 
+$verificar2="and a.cod_aula not in (select m.cod_aula 
             from reserva r, ambiente m
             where r.COD_AULA = m.COD_AULA and
             r.FECHA_RESERVA = '$fecha' and
