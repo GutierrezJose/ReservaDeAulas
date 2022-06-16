@@ -55,13 +55,7 @@ $conexion->close();
                     <a href="Urgencia.php" class="d-block  p-3"><i class="icon ion-md-alert mr-2 lead"></i> Reservas por urgencia</a>
                 </li>
                 <li>
-                    <a href="MAXmin.php" class="d-block  p-3"><i class="icon ion-md-create mr-2 lead"></i> Cambiar limite de reservas</a>
-                </li>
-                <li>
                     <a href="RegistroCambiosDeMaxMin.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Registro de cambios de limite</a>
-                </li>
-                <li>
-                    <a href="AñadirAula.html" class="d-block  p-3"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aulas</a>
                 </li>
                 <li>
                     <a href="ListaDeAulas.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
@@ -81,16 +75,44 @@ $conexion->close();
             <div class="datos">
              <br>
              <form action="InsertarDias.php" method="post">
-               <li><label>Minimo de dias</label><input class="campos" name="minimo" value="" type="number" placeholder="Minimo de dias" min="1" class="inputs"  required></li>
-               <li><label>Maximo de dias</label><input class="campos" name="maximo" value="" type="number" placeholder="Maximo de dias" min="1"  class="inputs"  required></li>
-               <li><label>Motivo del cambio</label><input class="campos" name="motivo" value="" type="text" placeholder="Motivo por el que hace el cambio" size="30"  class="inputs" required></li>
-               <li id="cancelar"><input type="reset" class="btn btn-primary cancelar" value="Cancelar"></li>
+               <li><label>Minimo de dias</label><input class="campos" name="minimo" value="" type="number" placeholder="Minimo de dias" min="1" class="inputs" onkeypress=" SoloNumeros(event);" required></li>
+               <li><label>Maximo de dias</label><input class="campos" name="maximo" value="" type="number" placeholder="Maximo de dias" min="1"  class="inputs" onkeypress=" SoloNumeros(event);" required></li>
+               <li><label>Motivo del cambio</label><input class="campos" name="motivo" value="" type="text" placeholder="Motivo por el que hace el cambio" size="30" class="inputs" required></li>
+               <li id="cancelar"><input type="reset" class="btn btn-primary cancelar" onclick=" confirmarCancelar()" value="Cancelar" ></li>
                <li id="enviar"><input type="submit" class="btn btn-primary enviar" value="Guardar"></li>
                <li><label><strong>Numero de dias minimo actual: <?php echo $Min["diaMinimo"]?> </strong></label></li>
                <li><label><strong>Numero de dias maximo actual: <?php echo $Max["diaMaximo"]?> </strong></label></li>
              </form>
           </div>
         </div>
+        <script>
+        function SoloNumeros(evt)
+        {
+            if(window.event){
+                keynum = evt.keyCode;
+            }
+            else{
+                keynum = evt.which;
+            }
+            if((keynum > 47 && keynum < 58)||keynum == 32){
+                return true;
+            }
+            else
+            {
+                alert("Solo puede ingresar numeros");
+                return false;
+            }
+        }
+    </script> 
+    <script type="text/javascript">
+        function confirmarCancelar()
+        {
+          var respuesta = confirm("Estas seguro de cancelar");
+          if(respuesta == true){
+            window.location.href = "RegistroCambiosDeMaxMin.php"
+          }
+        }
+        </script>
     </div>   
 </body>
 </html>

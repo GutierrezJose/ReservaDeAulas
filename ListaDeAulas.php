@@ -51,13 +51,7 @@ include 'conexion.php';
                     <a href="Urgencia.php" class="d-block  p-3"><i class="icon ion-md-alert mr-2 lead"></i> Reservas por urgencia</a>
                 </li>
                 <li>
-                    <a href="MAXmin.php" class="d-block  p-3"><i class="icon ion-md-create mr-2 lead"></i> Cambiar limite de reservas</a>
-                </li>
-                <li>
                     <a href="RegistroCambiosDeMaxMin.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Registro de cambios de limite</a>
-                </li>
-                <li>
-                    <a href="AñadirAula.html" class="d-block  p-3"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aulas</a>
                 </li>
                 <li>
                     <a href="ListaDeAulas.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
@@ -74,7 +68,7 @@ include 'conexion.php';
         </nav>
         <div class="container">
             <h1>Lista de aulas registradas</h1>
-            <button><i class="icon ion-md-add mr-2 lead"></i> Agregar Aula</button>
+            <button class="btn btn-primary" onclick="location.href='AñadirAula.html'"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aula</button>
             <div class="panel panel-default">
             <div class="panel-body">
             <table class="table table-striped table-bordered" id="ambientes">
@@ -101,8 +95,8 @@ include 'conexion.php';
                                 <td><?php echo $filas["cod_aula"]?></td> 
                                 <td><?php echo $filas["tipo_aula"]?></td> 
                                 <td><?php echo $filas["capacidad"]?></td> 
-                                <td><button><i class="icon ion-md-create mr-2 lead"></i> Editar</button></td>
-                                <td><button><i class="icon ion-md-trash mr-2 lead" href="EliminarAula.php" href="ListaDeAulas.php"></i> Eliminar</button></td>
+                                <td><button class="btn btn-warning"><i class="icon ion-md-create mr-2 lead"></i> Editar</button></td>
+                                <td><button class="btn btn-danger"><i class="icon ion-md-trash mr-2 lead" href="EliminarAula.php" href="ListaDeAulas.php"></i> Eliminar</button></td>
                                 </tr>
                                 <?php
                             }

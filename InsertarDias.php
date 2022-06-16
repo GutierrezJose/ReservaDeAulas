@@ -22,7 +22,7 @@ if($minimo > $maximo){
     $insertar = $conexion->query($InsDias);
     echo "<script>";
     echo "if(confirm('Se Actualizo los dias minimos y maximos'));";  
-    echo "window.location = 'MAXmin.php';";
+    echo "window.location = 'RegistroCambiosDeMaxMin.php';";
     echo "</script>";
 
 }

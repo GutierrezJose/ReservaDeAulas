@@ -19,8 +19,7 @@ include 'conexion.php';
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
     </script>
-    <script type="text/javascript"></script>
-    <title>Lista de reservas por urgencia</title> 
+    <script type="text/javascript"></script> 
   </head>
 <body>
     <div class="contenedor">
@@ -48,13 +47,7 @@ include 'conexion.php';
                     <a href="Urgencia.php" class="d-block  p-3"><i class="icon ion-md-alert mr-2 lead"></i> Reservas por urgencia</a>
                 </li>
                 <li>
-                    <a href="MAXmin.php" class="d-block  p-3"><i class="icon ion-md-create mr-2 lead"></i> Cambiar limite de reservas</a>
-                </li>
-                <li>
                     <a href="RegistroCambiosDeMaxMin.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Registro de cambios de limite</a>
-                </li>
-                <li>
-                    <a href="AñadirAula.html" class="d-block  p-3"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aulas</a>
                 </li>
                 <li>
                     <a href="ListaDeAulas.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
@@ -71,6 +64,7 @@ include 'conexion.php';
         </nav>
         
         <div class="container">
+        <h1>Lista de reservas por fecha proxima</h1>
             <div class="panel panel-default">
             <div class="panel-body">
             <table class="table table-striped table-bordered">
