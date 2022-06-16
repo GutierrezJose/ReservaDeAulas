@@ -14,6 +14,11 @@ include 'conexion.php';
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="Urgencia.css">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
     <script type="text/javascript"></script>
     <title>Lista de reservas por urgencia</title> 
   </head>
@@ -66,7 +71,8 @@ include 'conexion.php';
         </nav>
         
         <div class="container">
-            <div class="table-responsive">
+            <div class="panel panel-default">
+            <div class="panel-body">
             <table class="table table-striped table-bordered">
                 <thead class="thead-ligth">
                 <br>
@@ -81,7 +87,7 @@ include 'conexion.php';
                 </tr>
             </thead>
             <tbody>
-                <tr class="table-success">
+               
                 <?php
                         $llegada = "    select r.id_reserva, r.fecha_reserva, r.hora_inicio,r.periodo,d.nombre_usuario,r.cod_aula,r.reporte
                                         from reserva r, usuario d
@@ -91,14 +97,15 @@ include 'conexion.php';
                         if ($resultado->num_rows > 0) {
                             while ($filas = $resultado -> fetch_assoc()) {
                                 ?>
-                                <th><?php echo $filas["id_reserva"]?></th> 
-                                <th><?php echo $filas["fecha_reserva"]?></th> 
-                                <th><?php echo $filas["hora_inicio"]?></th> 
-                                <th><?php echo $filas["periodo"]?></th> 
-                                <th><?php echo $filas["nombre_usuario"]?></th> 
-                                <th><?php echo $filas["cod_aula"]?></th> 
-                                <th><?php echo $filas["reporte"]?></th>
-                </tr>
+                                <tr>
+                                <td><?php echo $filas["id_reserva"]?></td> 
+                                <td><?php echo $filas["fecha_reserva"]?></td> 
+                                <td><?php echo $filas["hora_inicio"]?></td> 
+                                <td><?php echo $filas["periodo"]?></td> 
+                                <td><?php echo $filas["nombre_usuario"]?></td> 
+                                <td><?php echo $filas["cod_aula"]?></td> 
+                                <td><?php echo $filas["reporte"]?></td>
+                                </tr>
                                 <?php
                             }
                         }
@@ -116,6 +123,43 @@ include 'conexion.php';
                 $("#sidebar").toggleClass('active');
             });
         });
+    </script>
+    <script>
+         $('th').click(function() {
+            var table = $(this).parents('table').eq(0)
+            var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+            this.asc = !this.asc
+            if (!this.asc) {
+            rows = rows.reverse()
+            }
+            for (var i = 0; i < rows.length; i++) {
+            table.append(rows[i])
+            }
+            setIcon($(this), this.asc);
+        })
+
+        function comparer(index) {
+            return function(a, b) {
+            var valA = getCellValue(a, index),
+                valB = getCellValue(b, index)
+            return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB)
+            }
+        }
+
+        function getCellValue(row, index) {
+            return $(row).children('td').eq(index).html()
+        }
+
+        function setIcon(element, asc) {
+            $("th").each(function(index) {
+            $(this).removeClass("sorting");
+            $(this).removeClass("asc");
+            $(this).removeClass("desc");
+            });
+            element.addClass("sorting");
+            if (asc) element.addClass("asc");
+            else element.addClass("desc");
+        }
     </script>
 </body>
 </html>

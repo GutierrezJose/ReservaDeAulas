@@ -3,7 +3,7 @@ include 'conexion.php';
 ?>
 <!doctype html>
 <html lang="en">
-  <head>  
+  <head>
     <script>
         
     </script>
@@ -16,8 +16,14 @@ include 'conexion.php';
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="Urgencia.css">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
     <script type="text/javascript"></script>
     <title>Lista de aulas</title> 
+    
   </head>
 <body>
     <div class="contenedor">
@@ -68,38 +74,81 @@ include 'conexion.php';
         </nav>
         <div class="container">
             <h1>Lista de aulas registradas</h1>
-            <div class="table-responsive">
-            <table class="table table-striped table-bordered">
+            <button><i class="icon ion-md-add mr-2 lead"></i> Agregar Aula</button>
+            <div class="panel panel-default">
+            <div class="panel-body">
+            <table class="table table-striped table-bordered" id="ambientes">
                 <thead class="thead-ligth">
                 <br>
                 <tr>
                     <th>Numero</th>
                     <th>Ambiente</th>
                     <th>Capacidad</th>
-
-                </tr>
-            </thead>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>  
+                </thead>
             <tbody>
-                <tr class="table-success">
                     <?php
                         $ambiente = "select cod_aula,tipo_aula,capacidad
                                     from ambiente";
                         $resultado = $conexion->query($ambiente);
                         if ($resultado->num_rows > 0) {
                             while ($filas = $resultado -> fetch_assoc()) {
+                                
                                 ?>
-                                <th><?php echo $filas["cod_aula"]?></th> 
-                                <th><?php echo $filas["tipo_aula"]?></th> 
-                                <th><?php echo $filas["capacidad"]?></th> 
-
-                </tr>
+                                <tr class="registro-<?php echo $filas["cod_aula"]?>">
+                                <td><?php echo $filas["cod_aula"]?></td> 
+                                <td><?php echo $filas["tipo_aula"]?></td> 
+                                <td><?php echo $filas["capacidad"]?></td> 
+                                <td><button><i class="icon ion-md-create mr-2 lead"></i> Editar</button></td>
+                                <td><button><i class="icon ion-md-trash mr-2 lead" href="EliminarAula.php" href="ListaDeAulas.php"></i> Eliminar</button></td>
+                                </tr>
                                 <?php
                             }
                         }
-                            $conexion->close();
-                                ?>
+                        $conexion->close();
+                    ?>
             </tbody>
     </table>
+    <script>
+         $('th').click(function() {
+            var table = $(this).parents('table').eq(0)
+            var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+            this.asc = !this.asc
+            if (!this.asc) {
+            rows = rows.reverse()
+            }
+            for (var i = 0; i < rows.length; i++) {
+            table.append(rows[i])
+            }
+            setIcon($(this), this.asc);
+        })
+
+        function comparer(index) {
+            return function(a, b) {
+            var valA = getCellValue(a, index),
+                valB = getCellValue(b, index)
+            return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB)
+            }
+        }
+
+        function getCellValue(row, index) {
+            return $(row).children('td').eq(index).html()
+        }
+
+        function setIcon(element, asc) {
+            $("th").each(function(index) {
+            $(this).removeClass("sorting");
+            $(this).removeClass("asc");
+            $(this).removeClass("desc");
+            });
+            element.addClass("sorting");
+            if (asc) element.addClass("asc");
+            else element.addClass("desc");
+        }
+    </script>
+</div>
 </div>
 </div>
 </div>   

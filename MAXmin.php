@@ -81,13 +81,13 @@ $conexion->close();
             <div class="datos">
              <br>
              <form action="InsertarDias.php" method="post">
-               <li><label>Maximo de dias</label><input class="campos" name="maximo" value="" type="number" placeholder="Maximo de dias" min="1"  class="inputs"  required></li>
                <li><label>Minimo de dias</label><input class="campos" name="minimo" value="" type="number" placeholder="Minimo de dias" min="1" class="inputs"  required></li>
+               <li><label>Maximo de dias</label><input class="campos" name="maximo" value="" type="number" placeholder="Maximo de dias" min="1"  class="inputs"  required></li>
                <li><label>Motivo del cambio</label><input class="campos" name="motivo" value="" type="text" placeholder="Motivo por el que hace el cambio" size="30"  class="inputs" required></li>
                <li id="cancelar"><input type="reset" class="btn btn-primary cancelar" value="Cancelar"></li>
                <li id="enviar"><input type="submit" class="btn btn-primary enviar" value="Guardar"></li>
-               <li><label><strong>Numero de dias maximo actual: <?php echo $Max["diaMaximo"]?> </strong></label></li>
                <li><label><strong>Numero de dias minimo actual: <?php echo $Min["diaMinimo"]?> </strong></label></li>
+               <li><label><strong>Numero de dias maximo actual: <?php echo $Max["diaMaximo"]?> </strong></label></li>
              </form>
           </div>
         </div>

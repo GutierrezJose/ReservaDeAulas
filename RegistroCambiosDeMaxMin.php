@@ -17,6 +17,12 @@ include 'conexion.php';
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="Urgencia.css">
+    <link rel="stylesheet" href="Urgencia.css">
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous">
+    </script>
     <script type="text/javascript"></script>
     <title>Lista de aulas</title> 
   </head>
@@ -55,7 +61,7 @@ include 'conexion.php';
                     <a href="AñadirAula.html" class="d-block  p-3"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aulas</a>
                 </li>
                 <li>
-                    <a href="ListaDeAulas.html" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
+                    <a href="ListaDeAulas.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
                 </li>
                 
             </li>
@@ -75,14 +81,14 @@ include 'conexion.php';
                 <thead class="thead-ligth">
                 <br>
                 <tr>
-                    <th>Maximo</th>
                     <th>Minimo</th>
+                    <th>Maximo</th>
                     <th>Motivo</th>
                     <th>Fecha de cambio</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="table-success">
+          
                     <?php
                         $llegada = "    select cant_maximo, cant_minimo, motivo, fecha_de_cambio
                                         from historial_cambios;";
@@ -90,11 +96,12 @@ include 'conexion.php';
                         if ($resultado->num_rows > 0) {
                             while ($filas = $resultado -> fetch_assoc()) {
                                 ?>
-                                <th><?php echo $filas["cant_maximo"]?></th> 
-                                <th><?php echo $filas["cant_minimo"]?></th> 
-                                <th><?php echo $filas["motivo"]?></th> 
-                                <th><?php echo $filas["fecha_de_cambio"]?></th> 
-                </tr>
+                                <tr>
+                                <td><?php echo $filas["cant_minimo"]?></td> 
+                                <td><?php echo $filas["cant_maximo"]?></td> 
+                                <td><?php echo $filas["motivo"]?></td> 
+                                <td><?php echo $filas["fecha_de_cambio"]?></td> 
+                                </tr>
                                 <?php
                             }
                         }
@@ -102,6 +109,43 @@ include 'conexion.php';
                                 ?>
             </tbody>
     </table>
+    <script>
+         $('th').click(function() {
+            var table = $(this).parents('table').eq(0)
+            var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+            this.asc = !this.asc
+            if (!this.asc) {
+            rows = rows.reverse()
+            }
+            for (var i = 0; i < rows.length; i++) {
+            table.append(rows[i])
+            }
+            setIcon($(this), this.asc);
+        })
+
+        function comparer(index) {
+            return function(a, b) {
+            var valA = getCellValue(a, index),
+                valB = getCellValue(b, index)
+            return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB)
+            }
+        }
+
+        function getCellValue(row, index) {
+            return $(row).children('td').eq(index).html()
+        }
+
+        function setIcon(element, asc) {
+            $("th").each(function(index) {
+            $(this).removeClass("sorting");
+            $(this).removeClass("asc");
+            $(this).removeClass("desc");
+            });
+            element.addClass("sorting");
+            if (asc) element.addClass("asc");
+            else element.addClass("desc");
+        }
+    </script>
 </div>
 </div>
 </div>   

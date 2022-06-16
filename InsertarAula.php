@@ -15,11 +15,11 @@ if($resultadoVerificar->num_rows == 0){
     $resultadoInsertar=$conexion->query($consulta);
     echo "<script>";
     echo "if(confirm('Se inserto correctamente'));";  
-    echo "window.location = 'AñadirAula.html';";
+    echo "window.location = 'ListaDeAulas.php';";
     echo "</script>";
 }else{
     echo "<script>";
-    echo "if(confirm('no se inserto correctamente'));";  
+    echo "if(confirm('No se inserto correctamente, por favor verifique sus parametros'));";  
     echo "window.location = 'AñadirAula.html';";
     echo "</script>";
 }

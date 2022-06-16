@@ -68,14 +68,12 @@
         }
     </script> 
     
-    <script>
+    <script type="text/javascript">
         function confirmarCancelar()
         {
           var respuesta = confirm("Estas seguro de cancelar");
           if(respuesta == true){
-            return true;
-          }else{
-            return false;
+            window.location.href = "ListaDeAulas.php"
           }
         }
       </script>
@@ -120,7 +118,7 @@
                     <a href="MAXmin.php" class="d-block  p-3"><i class="icon ion-md-create mr-2 lead"></i> Cambiar limite de reservas</a>
                 </li>
                 <li>
-                    <a href="RegistroCambiosDeMaxMin.html" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Registro de cambios de limite</a>
+                    <a href="RegistroCambiosDeMaxMin.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Registro de cambios de limite</a>
                 </li>
                 <li>
                     <a href="AñadirAula.html" class="d-block  p-3"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aulas</a>
