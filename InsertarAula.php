@@ -20,7 +20,7 @@ if($resultadoVerificar->num_rows == 0){
 }else{
     echo "<script>";
     echo "if(confirm('No se inserto correctamente, por favor verifique sus parametros'));";  
-    echo "window.location = 'AñadirAula.html';";
+    echo "window.location = 'ListaDeAulas.php';";
     echo "</script>";
 }
 $conexion->close();
