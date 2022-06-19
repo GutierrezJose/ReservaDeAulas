@@ -57,7 +57,9 @@ include 'conexion.php';
                 <li>
                     <a href="ListaDeAulas.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de aulas</a>
                 </li>
-                
+                <li>
+                    <a href="ListaDocentes.php" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Lista de docentes</a>
+                </li>
             </li>
         </nav>      
         
