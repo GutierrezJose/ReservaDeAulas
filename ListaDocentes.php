@@ -1,6 +1,7 @@
 <?php
 include 'conexion.php';
 ?>
+
 <!doctype html>
 <html lang="en">
   <head>  
@@ -13,12 +14,12 @@ include 'conexion.php';
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="Urgencia.css">
+    <script type="text/javascript"></script>
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
     </script>
-    <script type="text/javascript"></script>
   </head>
 <body>
     <div class="contenedor">
@@ -63,95 +64,81 @@ include 'conexion.php';
         </nav>
         
         <div class="container">
-        <h1>Lista de reservas por urgencia</h1>
-            <div class="table-responsive">
-            <table class="table table-striped table-bordered">
+        <h1>Lista de docentes</h1>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="table">
                 <thead class="thead-ligth">
                 <br>
                 <tr>
-                    <th>Codigo</th>
-                    <th>Fecha</th>
-                    <th>Hora inicio</th>
-                    <th>Periodo</th>
-                    <th>Docente</th>
-                    <th>Ambiente</th>
-                    <th>Motivo</th>
-                    <th>Justificacion</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Codigo SIS</th>
+                    <th>Contraseña</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="table-success">
                     <?php
-                        $llegada = "    select r.id_reserva, r.fecha_reserva, r.hora_inicio,r.periodo,d.nombre_usuario,r.cod_aula,r.reporte
-                                        from reserva r, usuario d
-                                        where r.codigo_sis=d.codigo_sis and urgencia = true
-                                        order by r.id_reserva asc;";
+                        $llegada = "    select r.nombre_usuario, r.correo_usuario, r.codigo_sis,r.contrasena_usuario
+                                        from usuario r, usuario d
+                                        where r.codigo_sis=d.codigo_sis
+                                        order by r.codigo_sis asc;";
                         $resultado = $conexion->query($llegada);
                         if ($resultado->num_rows > 0) {
                             while ($filas = $resultado -> fetch_assoc()) {
                                 ?>
-                                <td><?php echo $filas["id_reserva"]?></td> 
-                                <td><?php echo $filas["fecha_reserva"]?></td> 
-                                <td><?php echo $filas["hora_inicio"]?></td> 
-                                <td><?php echo $filas["periodo"]?></td> 
                                 <td><?php echo $filas["nombre_usuario"]?></td> 
-                                <td><?php echo $filas["cod_aula"]?></td> 
-                                <td><?php echo $filas["reporte"]?></td>
-                                </tr>
+                                <td><?php echo $filas["correo_usuario"]?></td> 
+                                <td><?php echo $filas["codigo_sis"]?></td> 
+                                <td><?php echo $filas["contrasena_usuario"]?></td> 
+                                </tr>                                
                                 <?php
                             }
                         }
-                            $conexion->close();
-                                ?>
+                        $conexion->close();
+                        ?>
             </tbody>
             </table>
+            </div>
         </div>
-        </div>
-    </div>   
-    
+    </div>
     <script>
-        $(document).ready(function(){
-            $("#sidebarCollapse").on('click',function(){
-                $("#sidebar").toggleClass('active');
-            });
-        });
-    </script>
-    <script>
-         $('th').click(function() {
-            var table = $(this).parents('table').eq(0)
-            var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
-            this.asc = !this.asc
-            if (!this.asc) {
-            rows = rows.reverse()
-            }
-            for (var i = 0; i < rows.length; i++) {
-            table.append(rows[i])
-            }
-            setIcon($(this), this.asc);
-        })
+    $('th').click(function() {
+    var table = $(this).parents('table').eq(0)
+    var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+    this.asc = !this.asc
+    if (!this.asc) {
+      rows = rows.reverse()
+    }
+    for (var i = 0; i < rows.length; i++) {
+      table.append(rows[i])
+    }
+    setIcon($(this), this.asc);
+  })
 
-        function comparer(index) {
-            return function(a, b) {
-            var valA = getCellValue(a, index),
-                valB = getCellValue(b, index)
-            return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB)
-            }
-        }
+  function comparer(index) {
+    return function(a, b) {
+      var valA = getCellValue(a, index),
+        valB = getCellValue(b, index)
+      return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.localeCompare(valB)
+    }
+  }
 
-        function getCellValue(row, index) {
-            return $(row).children('td').eq(index).html()
-        }
+  function getCellValue(row, index) {
+    return $(row).children('td').eq(index).html()
+  }
 
-        function setIcon(element, asc) {
-            $("th").each(function(index) {
-            $(this).removeClass("sorting");
-            $(this).removeClass("asc");
-            $(this).removeClass("desc");
-            });
-            element.addClass("sorting");
-            if (asc) element.addClass("asc");
-            else element.addClass("desc");
-        }
+  function setIcon(element, asc) {
+    $("th").each(function(index) {
+      $(this).removeClass("sorting");
+      $(this).removeClass("asc");
+      $(this).removeClass("desc");
+    });
+    element.addClass("sorting");
+    if (asc) element.addClass("asc");
+    else element.addClass("desc");
+  }
     </script>
 </body>
 </html>

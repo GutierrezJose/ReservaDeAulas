@@ -90,7 +90,6 @@ include 'conexion.php';
                         if ($resultado->num_rows > 0) {
                             while ($filas = $resultado -> fetch_assoc()) {
                                 ?>
-                                <tr>
                                 <td><?php echo $filas["id_reserva"]?></td> 
                                 <td><?php echo $filas["fecha_reserva"]?></td> 
                                 <td><?php echo $filas["hora_inicio"]?></td> 
