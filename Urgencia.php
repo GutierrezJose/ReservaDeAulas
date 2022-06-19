@@ -19,6 +19,7 @@ include 'conexion.php';
         crossorigin="anonymous">
     </script>
     <script type="text/javascript"></script>
+    <title>Lista de urgencias</title> 
   </head>
 <body>
     <div class="contenedor">
@@ -79,7 +80,6 @@ include 'conexion.php';
                     <th>Docente</th>
                     <th>Ambiente</th>
                     <th>Motivo</th>
-                    <th>Justificacion</th>
                 </tr>
             </thead>
             <tbody>

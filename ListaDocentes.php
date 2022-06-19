@@ -20,6 +20,7 @@ include 'conexion.php';
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
     </script>
+    <title>Lista de docentes</title> 
   </head>
 <body>
     <div class="contenedor">
@@ -68,9 +69,8 @@ include 'conexion.php';
         
         <div class="container">
         <h1>Lista de docentes</h1>
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <table class="table">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
                 <thead class="thead-ligth">
                 <br>
                 <tr>

@@ -20,6 +20,7 @@ include 'conexion.php';
         crossorigin="anonymous">
     </script>
     <script type="text/javascript"></script> 
+    <title>Lista de Reservas</title> 
   </head>
 <body>
     <div class="contenedor">

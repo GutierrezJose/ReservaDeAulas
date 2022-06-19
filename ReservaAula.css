@@ -7,7 +7,9 @@ header{
 #logoFCYT{
     width: 95px;
 }
-
+#nos{
+    color: #ffffff;
+}
 #sidebar-container{
     /*min-height: 70vh;*/
     min-width: 10%;
