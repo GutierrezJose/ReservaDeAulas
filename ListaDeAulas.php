@@ -70,7 +70,7 @@ include 'conexion.php';
             </div>
         </nav>
         <div class="container">
-            <h1>Lista de aulas registradas</h1>
+            <h1>Lista de ambientes registrados</h1>
             <button class="btn btn-primary" onclick="location.href='AñadirAula.html'"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aula</button>
             <div class="panel panel-default">
             <div class="panel-body">
