@@ -139,5 +139,28 @@ function resCal(){
     document.getElementById("calen").value = "AAAA/MM/DD";
 }
 
+function deleteAula(datos){
+    $.post("./EliminarAula.php", {datos : datos}, function(inserto){
+        if(inserto){
+            if(confirm('Se elimino el ambiente Correctamente'))
+            window.location.reload();
+        }else{
+            if(confirm('No se elimino el ambiente Correctamente'))
+            window.location.reload();
+        }
+    });
+}
+function deleteAula(datos){
+    $.post("./EliminarAula.php", {datos : datos}, function(inserto){
+        if(inserto){
+            if(confirm('Se elimino el ambiente Correctamente'))
+            window.location.reload();
+        }else{
+            if(confirm('No se elimino el ambiente Correctamente'))
+            window.location.reload();
+        }
+    });
+}
+
 
 

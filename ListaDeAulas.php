@@ -1,9 +1,14 @@
 <?php
 include 'conexion.php';
+$ambiente = "select cod_aula,tipo_aula,capacidad
+            from ambiente";
+$resultado = $conexion->query($ambiente);
 ?>
 <!doctype html>
 <html lang="en">
   <head>
+    <script language="javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script language="javascript" src="js/funciones.js"></script>
     <script>
         
     </script>
@@ -87,19 +92,16 @@ include 'conexion.php';
                 </thead>
             <tbody>
                     <?php
-                        $ambiente = "select cod_aula,tipo_aula,capacidad
-                                    from ambiente";
-                        $resultado = $conexion->query($ambiente);
+                        
                         if ($resultado->num_rows > 0) {
                             while ($filas = $resultado -> fetch_assoc()) {
-                                
                                 ?>
                                 <tr class="registro-<?php echo $filas["cod_aula"]?>">
                                 <td><?php echo $filas["cod_aula"]?></td> 
                                 <td><?php echo $filas["tipo_aula"]?></td> 
                                 <td><?php echo $filas["capacidad"]?></td> 
                                 <td><button class="btn btn-warning"><i class="icon ion-md-create mr-2 lead"></i> Editar</button></td>
-                                <td><button class="btn btn-danger"><i class="icon ion-md-trash mr-2 lead" href="EliminarAula.php" href="ListaDeAulas.php"></i> Eliminar</button></td>
+                                <td><button class="btn btn-danger" onclick="deleteAula('<?php echo $filas['cod_aula'] ?>')" ><i class="icon ion-md-trash mr-2 lead" ></i> Eliminar</button></td>
                                 </tr>
                                 <?php
                             }
