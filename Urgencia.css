@@ -116,4 +116,6 @@ table tr th {
   .desc:after {
     content: " ↓";
   }
- 
+ #searchTerm{
+    position: absolute;
+ }
