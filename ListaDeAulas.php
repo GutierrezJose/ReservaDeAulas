@@ -47,7 +47,7 @@ $resultado = $conexion->query($ambiente);
                     <h1><i class="icon ion-md-person mr-2 lead"> Administrador</i></h1>
                 </li>
                 <li>
-                    <a href="OrdenLlegada.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Reservas</a>
+                    <a href="Reservas.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Reservas</a>
                 </li>
                 <li>
                     <a href="Urgencia.php" class="d-block  p-3"><i class="icon ion-md-alert mr-2 lead"></i> Reservas por urgencia</a>
@@ -59,7 +59,10 @@ $resultado = $conexion->query($ambiente);
                     <a href="ListaDeAulas.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de ambientes</a>
                 </li>
                 <li>
-                    <a href="ListaDocentes.php" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Lista de docentes</a>
+                    <a href="ListaDocentes.php" class="d-block  p-3"><i class="icon ion-md-person mr-2 lead"></i> Lista de usuarios</a>
+                </li>
+                <li>
+                    <a href="ListaMateriasDocentes.php" class="d-block  p-3"><i class="icon ion-md-document mr-2 lead"></i> Lista de Materias-Docentes</a>
                 </li>
             </li>
         </nav>      

@@ -78,27 +78,33 @@ include 'conexion.php';
                 <thead class="thead-ligth">
                 <br>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Correo</th>
-                    <th>Codigo SIS</th>
-                    <th>Contraseña</th>
+                    <th>Docente</th>
+                    <th>Materia</th>
+                    <th>Cod SIS Materia</th>
+                    <th>Grupo</th>
+                    <th>Cantidad inscritos</th>
+                    <th>Dia Horario</th>
+                    <th>Hora horario</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="table-success">
                     <?php
-                        $llegada = "    select r.nombre_usuario, r.correo_usuario, r.codigo_sis,r.contrasena_usuario
-                                        from usuario r, usuario d
-                                        where r.codigo_sis=d.codigo_sis
-                                        order by r.codigo_sis asc;";
+                        $llegada = "    select u.nombre_usuario,m.nombre_materia, m.cod_sis_materia,g.cod_grupo,g.cantidad_inscritos,h.DIA_HORARIO,h.HORA_HORARIO
+                                        from usuario u, docente_materia d, materia m,grupo g, horario h, grupo_horario p
+                                        where u.codigo_sis=d.codigo_sis and d.cod_sis_materia = m.cod_sis_materia and m.cod_sis_materia = g.cod_sis_materia and g.codigo_sis=u.codigo_sis and p.ID_GRUPO=g.COD_GRUPO and p.ID_HORARIO=h.ID_HORARIO
+                                        order by u.nombre_usuario;";
                         $resultado = $conexion->query($llegada);
                         if ($resultado->num_rows > 0) {
                             while ($filas = $resultado -> fetch_assoc()) {
                                 ?>
                                 <td><?php echo $filas["nombre_usuario"]?></td> 
-                                <td><?php echo $filas["correo_usuario"]?></td> 
-                                <td><?php echo $filas["codigo_sis"]?></td> 
-                                <td><?php echo $filas["contrasena_usuario"]?></td> 
+                                <td><?php echo $filas["nombre_materia"]?></td> 
+                                <td><?php echo $filas["cod_sis_materia"]?></td> 
+                                <td><?php echo $filas["cod_grupo"]?></td> 
+                                <td><?php echo $filas["cantidad_inscritos"]?></td>
+                                <td><?php echo $filas["DIA_HORARIO"]?></td>
+                                <td><?php echo $filas["HORA_HORARIO"]?></td>
                                 </tr>                                
                                 <?php
                             }
