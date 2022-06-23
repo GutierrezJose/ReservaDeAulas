@@ -63,7 +63,7 @@ if($filasAdmin){
 }else {if($filasDocente){
     
     header("Status: 301 Moved Permanently");
-    header("Location: OrdenLlegada.php");
+    header("Location: Reservas.php");
     exit;
 }else {
     ?>

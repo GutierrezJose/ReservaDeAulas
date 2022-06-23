@@ -104,7 +104,7 @@ $resultado = $conexion->query($ambiente);
                                 <td><?php echo $filas["cod_aula"]?></td> 
                                 <td><?php echo $filas["tipo_aula"]?></td> 
                                 <td><?php echo $filas["capacidad"]?></td> 
-                                <td><button class="btn btn-warning"><i class="icon ion-md-create mr-2 lead"></i> Editar</button></td>
+                                <td><a href="EditarAula.php?id=<?php echo $filas['cod_aula']?>" class="btn btn-warning"><i class="icon ion-md-create mr-2 lead"></i>Editar</a></td>
                                 <td><button class="btn btn-danger" onclick="deleteAula('<?php echo $filas['cod_aula'] ?>')" ><i class="icon ion-md-trash mr-2 lead" ></i> Eliminar</button></td>
                                 </tr>
                                 <?php
