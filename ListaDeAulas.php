@@ -76,7 +76,7 @@ $resultado = $conexion->query($ambiente);
         </nav>
         <div class="container">
             <h1>Lista de ambientes registrados</h1>
-            <button class="btn btn-primary" onclick="location.href='AñadirAula.html'"><i class="icon ion-md-add mr-2 lead"></i> Añadir Aula</button>
+            <button class="btn btn-primary" onclick="location.href='AñadirAula.html'"><i class="icon ion-md-add mr-2 lead"></i> Añadir Ambiente</button>
             <form>
                 <br>
                 <i class="icon ion-md-search mr-2 lead"><text> </text></i><input id="searchTerm" type="text" placeholder="Buscar" onkeyup="doSearch()" />
@@ -87,7 +87,7 @@ $resultado = $conexion->query($ambiente);
                 <thead class="thead-ligth">
                 <br>
                 <tr>
-                    <th>Numero</th>
+                    <th>Nombre</th>
                     <th>Ambiente</th>
                     <th>Capacidad</th>
                     <th>Editar</th>

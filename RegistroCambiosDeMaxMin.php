@@ -71,7 +71,7 @@ include 'conexion.php';
             </div>
         </nav>
         <div class="container">
-            <h1>Registro de cambios de dias maximo y minimo para reserva de aulas</h1>
+            <h1>Registro de cambios de dias minimo y maximo para reserva de aulas</h1>
             <button class="btn btn-primary" onclick="location.href='MAXmin.php'"><i class="icon ion-md-create mr-2 lead"></i> Cambiar los limites de reserva</button>
             <div class="table-responsive">
             <table class="table table-striped table-bordered">
