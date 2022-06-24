@@ -98,7 +98,7 @@ $conexion->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="AñadirAula.css">
     <script type="text/javascript"></script>
-    <title>Añadir Aula</title> 
+    <title>Editar Ambiente</title> 
   </head>
 <body>
     <div class="contenedor">
@@ -144,7 +144,7 @@ $conexion->close();
             </div>
         </nav>
         <div class="formulario">
-            <h1>Editar Aula</h1>
+            <h1>Editar Ambiente</h1>
             <div class="datos">
              <br>
              <form action="update.php" method="post">
