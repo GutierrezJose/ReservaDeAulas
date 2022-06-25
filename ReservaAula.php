@@ -1,7 +1,6 @@
 
 <?php
 
-
 session_start();
 include 'conexion.php';
      $query1 = "SELECT diaMinimo FROM configuracion where id_configuracion=1;";
@@ -18,7 +17,6 @@ include 'conexion.php';
        $diaMaximo = $filas2["diaMaximo"];
     //agregado
 
-
     $sumaDiaMaximo = $fecha + $diaMaximo;
     $CD=$_SESSION['codSis'];
 
@@ -26,12 +24,37 @@ include 'conexion.php';
                                     FROM usuario d,materia m ,docente_materia p 
                                     where d.codigo_sis= $CD and d.codigo_sis=p.CODIGO_SIS and p.COD_SIS_MATERIA = m.COD_SIS_MATERIA;" );
 
-
     
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
+     <!--  <script>
+      function SoloLetras(e)
+      {   
+          key = e.keyCode || e.which;
+          tecla = String.fromCharCode(key).toString();
+          letras = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóú";
+  
+          especiales = [32, 9, 11, 13];
+          tecla_especial = false;
+          for(var i in especiales){
+          if(key == especiales[i]){
+              tecla_especial = true;
+              break;
+          }
+          }
+  
+          if((letras.indexOf(tecla)== -1) && (!tecla_especial))
+          {
+              alert("solo puede ingresar letras");
+              return false;
+          }
+          
+      }
+       /*   onkeypress="SoloLetras(event);"*/
+      </script> -->
+
         <title>Reserva aula</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,6 +71,7 @@ include 'conexion.php';
         <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
         <link rel="stylesheet" href="ReservaAula.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
     </head>
     <body>
     <div class="contenedor">
@@ -86,7 +110,8 @@ include 'conexion.php';
                         <div class="container-field">
                             <label for="html">Hora inicio:</label><br>
                             <select class="field-input" name="hora" id="hora" onchange="selecthora()">
-                                <option value="06:45:00" selected>6:45</option>
+                                <option  selected> Seleccionar Hora</option>
+                                <option value="06:45:00" >6:45</option>
                                 <option value="08:15:00" >8:15</option>
                                 <option value="09:45:00" >9:45</option>
                                 <option value="11:15:00" >11:15</option>
@@ -115,7 +140,7 @@ include 'conexion.php';
                     <div class="form-column">
                         <div class="container-field">
                             <label for="html">Materia:</label><br>
-                            <select id="materia" name="materia" class="field-input" onchange="selectmateria()" required>
+                            <select id="materia" name="materia" class="field-input" onchange="selectmateria()" >
                                 <option value="">Seleccionar Materia </option>
                                 <?php 
                                 while($datosMateria = mysqli_fetch_array($materia)) {
@@ -129,9 +154,8 @@ include 'conexion.php';
 
 
 
-
                         <div class="container-field">
-                        <input id="urgencia" name="urgencia" type="checkbox" class="checkbox" onclick="calendario()" required>
+                        <input id="urgencia" name="urgencia" type="checkbox" class="checkbox" onclick="calendario()">
                             <label for="html">Reserva por urgencia</label><br>
                         </div>
                         <div class="container-field">
@@ -195,7 +219,7 @@ include 'conexion.php';
                 <div class="form-field">
                     <br>
                     <label for="html" id="motivo">Motivo de la reserva : </label><br>
-                    <textarea name="reporte" class="text-area" name="" id="" cols="65" rows="2" required></textarea>
+                    <textarea name="reporte" class="text-area" name="" id="" cols="65" rows="2"  required ></textarea>                   
                 </div>
                 <div>
                     <input class="btn btn-primary" type="submit" id="Enviar" name=""  value="Enviar">
