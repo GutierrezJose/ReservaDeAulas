@@ -115,7 +115,7 @@ include 'conexion.php';
                     <div class="form-column">
                         <div class="container-field">
                             <label for="html">Materia:</label><br>
-                            <select id="materia" name="materia" class="field-input" onchange="selectmateria()" >
+                            <select id="materia" name="materia" class="field-input" onchange="selectmateria()" required>
                                 <option value="">Seleccionar Materia </option>
                                 <?php 
                                 while($datosMateria = mysqli_fetch_array($materia)) {
@@ -131,7 +131,7 @@ include 'conexion.php';
 
 
                         <div class="container-field">
-                        <input id="urgencia" name="urgencia" type="checkbox" class="checkbox" onclick="calendario()">
+                        <input id="urgencia" name="urgencia" type="checkbox" class="checkbox" onclick="calendario()" required>
                             <label for="html">Reserva por urgencia</label><br>
                         </div>
                         <div class="container-field">
