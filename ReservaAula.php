@@ -195,7 +195,7 @@ include 'conexion.php';
                 <div class="form-field">
                     <br>
                     <label for="html" id="motivo">Motivo de la reserva : </label><br>
-                    <textarea name="reporte" class="text-area" name="" id="" cols="65" rows="2" ></textarea>
+                    <textarea name="reporte" class="text-area" name="" id="" cols="65" rows="2" required></textarea>
                 </div>
                 <div>
                     <input class="btn btn-primary" type="submit" id="Enviar" name=""  value="Enviar">

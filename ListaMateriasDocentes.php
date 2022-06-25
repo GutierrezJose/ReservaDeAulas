@@ -20,7 +20,7 @@ include 'conexion.php';
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
     </script>
-    <title>Lista de docentes</title> 
+    <title>Lista de Materias-Docentes</title> 
   </head>
 <body>
     <div class="contenedor">
@@ -68,7 +68,7 @@ include 'conexion.php';
         </nav>
         
         <div class="container">
-        <h1>Lista de docentes</h1>
+        <h1>Lista de Materias-Docentes</h1>
         <form>
             <br>
             <i class="icon ion-md-search mr-2 lead"><text> </text></i><input id="searchTerm" type="text" placeholder="Buscar" onkeyup="doSearch()" />

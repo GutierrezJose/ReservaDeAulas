@@ -68,7 +68,7 @@ include 'conexion.php';
         </nav>
         
         <div class="container">
-        <h1>Lista de docentes</h1>
+        <h1>Lista de usuarios</h1>
         <form>
             <br>
             <i class="icon ion-md-search mr-2 lead"><text> </text></i><input id="searchTerm" type="text" placeholder="Buscar" onkeyup="doSearch()" />
