@@ -1,5 +1,6 @@
 <?php
 include 'conexion.php';
+$ordenar="order by a.capacidad asc";
 $ambiente = $_POST['id_ambiente'];
 $cantidad = $_POST['id_cantidad'];
 $hora=$_POST['hora'];
@@ -32,6 +33,7 @@ try {
     
     if($periodo==2)
         $aula .= $verificar2;
+        $aula .= $ordenar;
     $resultado = $conexion->query($aula);
     while($rowM = $resultado->fetch_assoc()){
         $temporal=$rowM["cod_aula"];
