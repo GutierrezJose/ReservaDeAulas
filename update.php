@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-$codAula = $_POST['usuario'];
+$codAula = $_POST['ambiente'];
 $tipoAula = $_POST['select'];
 $capacidad = $_POST['capacidadaula'];
 $disponibilidad = 1;

@@ -26,7 +26,7 @@ include 'conexion.php';
         <header id="cabecera">
           <img src="images/fcyt.png" id="logoFCYT">
           <a href="http://sagaa.fcyt.umss.edu.bo" id="nos"> Acerca de nosotros</a>
-          <a href="PaginaPrincipal.html" class="btn btn-primary" id="Inicio"> Cerrar Sesion </a>
+          <a href="index.html" class="btn btn-primary" id="Inicio"> Cerrar Sesion </a>
         </header>
     </div>
     <div class="wrapper">

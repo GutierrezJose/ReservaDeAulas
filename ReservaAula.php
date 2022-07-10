@@ -1,8 +1,7 @@
-
 <?php
 
 session_start();
-include 'conexion.php';
+include ("conexion.php");
      $query1 = "SELECT diaMinimo FROM configuracion where id_configuracion=1;";
      $query2 = "SELECT diaMaximo FROM configuracion where id_configuracion=1;";
     $resultado = $conexion -> query($query1);
@@ -69,8 +68,8 @@ include 'conexion.php';
         <link rel="stylesheet" href="css/bootstrap-datepicker.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="ReservaAula.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="ReservaAula.css">
 
     </head>
     <body>
@@ -78,10 +77,10 @@ include 'conexion.php';
         <header id="cabecera">
             <img src="images/fcyt.png" id="logoFCYT">
             <a href="http://sagaa.fcyt.umss.edu.bo" id="nos"> Acerca de nosotros</a>
-            <a href="PaginaPrincipal.html" class="btn btn-primary" id="Cerrar"> Cerrar Sesión </a>
+            <a href="index.html" class="btn btn-primary" id="Cerrar"> Cerrar Sesión </a>
         </header>
     <!-- MENU LATERAL-->
-    <div class="d-flex">
+    <div>
         <div id="sidebar-container">
           <div class="menu">
             <i class="bi bi-person-fill" id="User"></i>
@@ -202,7 +201,7 @@ include 'conexion.php';
                             <label for="html">Ambiente:</label><br>
                             <select id = "ambiente" name="ambiente" class="field-input" onchange="selectambiente();" )>
                                 <option value="porDefecto" >Seleccionar Tipo De Ambiente</option>
-                                <option value="Aula común" >Aula común</option>
+                                <option value="Aula comun" >Aula común</option>
                                 <option value="Laboratorio" >Laboratorio</option>
                                 <option value="Auditorio" >Auditorio</option>
                             </select>

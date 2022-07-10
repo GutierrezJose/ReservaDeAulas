@@ -31,7 +31,7 @@ include 'conexion.php';
         <header id="cabecera">
           <img src="images/fcyt.png" id="logoFCYT">
           <a href="http://sagaa.fcyt.umss.edu.bo" id="nos"> Acerca de nosotros</a>
-          <a href="PaginaPrincipal.html" class="btn btn-primary" id="Inicio"> Cerrar Sesion </a>
+          <a href="index.html" class="btn btn-primary" id="Inicio"> Cerrar Sesion </a>
         </header>
     </div>
     <div class="wrapper">
@@ -71,7 +71,7 @@ include 'conexion.php';
             </div>
         </nav>
         <div class="container">
-            <h1>Registro de cambios de dias minimo y maximo para reserva de aulas</h1>
+            <h1>Registro de cambios de dias maximo y minimo para reserva de aulas</h1>
             <button class="btn btn-primary" onclick="location.href='MAXmin.php'"><i class="icon ion-md-create mr-2 lead"></i> Cambiar los limites de reserva</button>
             <div class="table-responsive">
             <table class="table table-striped table-bordered">

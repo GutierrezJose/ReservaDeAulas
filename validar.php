@@ -1,11 +1,11 @@
 <?php
 include 'conexion.php';
 $usuario=$_POST['usuario'];
-$contraseña=$_POST['contraseña'];
+$contrasenia=$_POST['contrasenia'];
 session_start();
 $_SESSION['usuario']=$usuario;
-$consultaDocente="SElECT*FROM usuario where codigo_sis='$usuario' and contrasena_usuario='$contraseña' and administrador = true";
-$consultaAdmin="SElECT*FROM usuario where codigo_sis='$usuario' and contrasena_usuario='$contraseña' and administrador = false";
+$consultaDocente="SElECT*FROM usuario where codigo_sis='$usuario' and contrasena_usuario='$contrasenia' and administrador = true";
+$consultaAdmin="SElECT*FROM usuario where codigo_sis='$usuario' and contrasena_usuario='$contrasenia' and administrador = false";
 $resultadoDocente=mysqli_query($conexion,$consultaDocente);
 $resultadoAdmin=mysqli_query($conexion,$consultaAdmin);
 $filasDocente=mysqli_num_rows($resultadoDocente);
@@ -18,7 +18,7 @@ $resultado = mysqli_query($conexion, $consulta);
 $filas = mysqli_fetch_array($resultado);
 
 if($filas){   
-    if($contraseña == $filas['CONTRASENA_USUARIO']){
+    if($contrasenia == $filas['CONTRASENA_USUARIO']){
             
               $_SESSION['nUsuario']   = $filas['NOMBRE_USUARIO'];
               $_SESSION['codSis']   = $filas['CODIGO_SIS'];
@@ -67,14 +67,11 @@ if($filasAdmin){
     exit;
 }else {
     ?>
-    <h1> 
-        <script>
-            alert("Error al iniciar sesion"); 
-        </script>
-    </h1>
-    <?php
-        header("Status: 301 Moved Permanently");
-        header("Location: login.html");
+    <?php 
+     echo "<script>
+                alert('Error al iniciar sesion');
+                window.location= 'Login.html'
+    </script>";
 }
 }
 $conexion->close();
