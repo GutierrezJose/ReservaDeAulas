@@ -148,7 +148,7 @@ $conexion->close();
             <div class="datos">
              <br>
              <form action="update.php" method="post">
-               <li><label>Nombre</label><input class="campos" type="text" name="usuario" value="<?php echo $fila['COD_AULA']?>" minlength="1" id="cUsuario" size="30" required></li>
+               <li><label>Nombre</label><input class="campos" type="text" readonly name="ambiente" value="<?php echo $fila['COD_AULA']?>" minlength="1" id="cUsuario" size="30" required></li>
                <li>
                 <div class="btn-group">
                     <div class="form-group">
@@ -156,7 +156,7 @@ $conexion->close();
                        <b>El tipo de aula actual es:</b>
                        <label for="select"> <?php echo $fila['TIPO_AULA']?></label>
                         <select class="form-control" name="select" id="select">
-                          <option value="Aula Comun" >Aula común</option>
+                          <option value="Aula Comun" >Aula comun</option>
                           <option value="Laboratorio">Laboratorio</option>
                           <option value="Auditorio">Auditorio</option>
                         </select>

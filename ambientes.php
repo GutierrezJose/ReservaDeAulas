@@ -1,6 +1,6 @@
 <?php
 include 'conexion.php';
-$ordenar="order by a.capacidad asc";
+$ordenar="order by a.capacidad asc, a.cod_aula asc";
 $ambiente = $_POST['id_ambiente'];
 $cantidad = $_POST['id_cantidad'];
 $hora=$_POST['hora'];
@@ -16,8 +16,7 @@ $aula = "select a.cod_aula
                                 from reserva r, ambiente m
                                 where r.COD_AULA = m.COD_AULA and
                                 r.FECHA_RESERVA = '$fecha' and
-                                r.HORA_INICIO = '$hora') $verificar1";
-                            
+                                r.HORA_INICIO = '$hora') $verificar1";                            
 $verificar1="and a.cod_aula not in (select *
             from reserva r, ambiente m
             where r.COD_AULA = m.COD_AULA and
