@@ -35,7 +35,7 @@ $resultado = $conexion->query($ambiente);
         <header id="cabecera">
           <img src="images/fcyt.png" id="logoFCYT">
           <a href="http://sagaa.fcyt.umss.edu.bo" id="nos"> Acerca de nosotros</a>
-          <a href="PaginaPrincipal.html" class="btn btn-primary" id="Inicio"> Cerrar Sesion </a>
+          <a href="index.html" class="btn btn-primary" id="Inicio"> Cerrar Sesion </a>
         </header>
     </div>
     <div class="wrapper">
@@ -87,7 +87,7 @@ $resultado = $conexion->query($ambiente);
                 <thead class="thead-ligth">
                 <br>
                 <tr>
-                    <th>Nombre</th>
+                    <th>Numero</th>
                     <th>Ambiente</th>
                     <th>Capacidad</th>
                     <th>Editar</th>

@@ -20,14 +20,14 @@ include 'conexion.php';
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous">
     </script>
-    <title>Lista de Materias-Docentes</title> 
+    <title>Lista de Materia-Docentes</title> 
   </head>
 <body>
     <div class="contenedor">
         <header id="cabecera">
           <img src="images/fcyt.png" id="logoFCYT">
           <a href="http://sagaa.fcyt.umss.edu.bo" id="nos"> Acerca de nosotros</a>
-          <a href="PaginaPrincipal.html" class="btn btn-primary" id="Inicio"> Cerrar Sesion </a>
+          <a href="index.html" class="btn btn-primary" id="Inicio"> Cerrar Sesion </a>
         </header>
     </div>
     <div class="wrapper">
@@ -68,7 +68,7 @@ include 'conexion.php';
         </nav>
         
         <div class="container">
-        <h1>Lista de Materias-Docentes</h1>
+        <h1>Lista de Materia-Docentes</h1>
         <form>
             <br>
             <i class="icon ion-md-search mr-2 lead"><text> </text></i><input id="searchTerm" type="text" placeholder="Buscar" onkeyup="doSearch()" />
